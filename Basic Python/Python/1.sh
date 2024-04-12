@@ -1,0 +1,1 @@
+echo "hello world" |sed "s/$1/$2/"

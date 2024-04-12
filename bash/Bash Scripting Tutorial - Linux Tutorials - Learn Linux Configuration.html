@@ -1,0 +1,2044 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://linuxconfig.org/bash-scripting-tutorial -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Bash Scripting Tutorial - Linux Tutorials - Learn Linux Configuration</title>
+<meta name="description" content="This tutorial will show the basics of Bash scripting through examples, allowing beginners to master the concepts of the Bash shell on Linux.">
+<script type="text/javascript" async="" src="./Bash Scripting Tutorial - Linux Tutorials - Learn Linux Configuration_files/analytics.js"></script><script type="text/javascript" async="" src="./Bash Scripting Tutorial - Linux Tutorials - Learn Linux Configuration_files/js"></script><script async="" src="./Bash Scripting Tutorial - Linux Tutorials - Learn Linux Configuration_files/js(1)"></script><script src="./Bash Scripting Tutorial - Linux Tutorials - Learn Linux Configuration_files/YOL-SRJ3QyGF0loqZQH8Y5oWm1Q.js"></script><script src="./Bash Scripting Tutorial - Linux Tutorials - Learn Linux Configuration_files/SO0HOWNRKeEcCfaFuHnyZCFZQEM.js"></script><link rel="canonical" href="https://linuxconfig.org:444/bash-scripting-tutorial">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bash Scripting Tutorial">
+<meta property="og:description" content="This tutorial will show the basics of Bash scripting through examples, allowing beginners to master the concepts of the Bash shell on Linux.">
+<meta property="og:url" content="https://linuxconfig.org:444/bash-scripting-tutorial">
+<meta property="og:site_name" content="Linux Tutorials - Learn Linux Configuration">
+<meta property="article:modified_time" content="2023-12-07T06:48:21+00:00">
+<meta property="og:image" content="https://linuxconfig.org:444/wp-content/uploads/2013/03/00-bash-scripting-tutorial.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="570">
+<meta property="og:image:type" content="image/png">
+<meta name="author" content="Luke Reynolds">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:label1" content="Written by">
+<meta name="twitter:data1" content="Luke Reynolds">
+<meta name="twitter:label2" content="Est. reading time">
+<meta name="twitter:data2" content="11 minutes">
+<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://linuxconfig.org:444/bash-scripting-tutorial#article","isPartOf":{"@id":"https://linuxconfig.org:444/bash-scripting-tutorial"},"author":{"name":"Luke Reynolds","@id":"https://linuxconfig.org/#/schema/person/6530c8e6c7abbd88db08851437d58a33"},"headline":"Bash Scripting Tutorial","datePublished":"2013-03-21T13:00:36+00:00","dateModified":"2023-12-07T06:48:21+00:00","mainEntityOfPage":{"@id":"https://linuxconfig.org:444/bash-scripting-tutorial"},"wordCount":2456,"publisher":{"@id":"https://linuxconfig.org/#organization"},"image":{"@id":"https://linuxconfig.org:444/bash-scripting-tutorial#primaryimage"},"thumbnailUrl":"https://linuxconfig.org/wp-content/uploads/2013/03/00-bash-scripting-tutorial.png","keywords":["bash","beginner","programming","scripting"],"articleSection":["Programming &amp; Scripting"],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://linuxconfig.org:444/bash-scripting-tutorial","url":"https://linuxconfig.org:444/bash-scripting-tutorial","name":"Bash Scripting Tutorial - Linux Tutorials - Learn Linux Configuration","isPartOf":{"@id":"https://linuxconfig.org/#website"},"primaryImageOfPage":{"@id":"https://linuxconfig.org:444/bash-scripting-tutorial#primaryimage"},"image":{"@id":"https://linuxconfig.org:444/bash-scripting-tutorial#primaryimage"},"thumbnailUrl":"https://linuxconfig.org/wp-content/uploads/2013/03/00-bash-scripting-tutorial.png","description":"This tutorial will show the basics of Bash scripting through examples, allowing beginners to master the concepts of the Bash shell on Linux.","breadcrumb":{"@id":"https://linuxconfig.org:444/bash-scripting-tutorial#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://linuxconfig.org:444/bash-scripting-tutorial"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://linuxconfig.org:444/bash-scripting-tutorial#primaryimage","url":"https://linuxconfig.org/wp-content/uploads/2013/03/00-bash-scripting-tutorial.png","contentUrl":"https://linuxconfig.org/wp-content/uploads/2013/03/00-bash-scripting-tutorial.png","width":1200,"height":570,"caption":"Bash Scripting Tutorial"},{"@type":"BreadcrumbList","@id":"https://linuxconfig.org:444/bash-scripting-tutorial#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://linuxconfig.org/"},{"@type":"ListItem","position":2,"name":"Bash Scripting Tutorial"}]},{"@type":"WebSite","@id":"https://linuxconfig.org/#website","url":"https://linuxconfig.org/","name":"Linux Tutorials - Learn Linux Configuration","description":"LinuxConfig.org","publisher":{"@id":"https://linuxconfig.org/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://linuxconfig.org/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://linuxconfig.org/#organization","name":"Linux Tutorials - Learn Linux Configuration","url":"https://linuxconfig.org/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://linuxconfig.org/#/schema/logo/image/","url":"https://linuxconfig.org/wp-content/uploads/2024/04/logo-lx.avif","contentUrl":"https://linuxconfig.org/wp-content/uploads/2024/04/logo-lx.avif","width":250,"height":70,"caption":"Linux Tutorials - Learn Linux Configuration"},"image":{"@id":"https://linuxconfig.org/#/schema/logo/image/"}},{"@type":"Person","@id":"https://linuxconfig.org/#/schema/person/6530c8e6c7abbd88db08851437d58a33","name":"Luke Reynolds","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://linuxconfig.org/#/schema/person/image/","url":"https://secure.gravatar.com/avatar/a34a868e81ac3cee9d90f833b7a8ea93?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/a34a868e81ac3cee9d90f833b7a8ea93?s=96&d=mm&r=g","caption":"Luke Reynolds"},"url":"https://linuxconfig.org/author/luke"}]}</script>
+
+<link href="https://fonts.gstatic.com/" crossorigin="" rel="preconnect">
+<link href="https://fonts.googleapis.com/" crossorigin="" rel="preconnect">
+<link rel="alternate" type="application/rss+xml" title="Linux Tutorials - Learn Linux Configuration » Feed" href="https://linuxconfig.org/feed">
+<link rel="alternate" type="application/rss+xml" title="Linux Tutorials - Learn Linux Configuration » Comments Feed" href="https://linuxconfig.org/comments/feed">
+<link rel="alternate" type="application/rss+xml" title="Linux Tutorials - Learn Linux Configuration » Bash Scripting Tutorial Comments Feed" href="https://linuxconfig.org/bash-scripting-tutorial/feed">
+<!--<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/linuxconfig.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.5"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83d\udc26\u200d\u2b1b","\ud83d\udc26\u200b\u2b1b")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+</script>-->
+<link rel="stylesheet" id="generate-fonts-css" href="./Bash Scripting Tutorial - Linux Tutorials - Learn Linux Configuration_files/css" media="all">
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel="stylesheet" id="crp-style-text-only-css" href="./Bash Scripting Tutorial - Linux Tutorials - Learn Linux Configuration_files/text-only.min.css" media="all">
+<link rel="stylesheet" id="generate-widget-areas-css" href="./Bash Scripting Tutorial - Linux Tutorials - Learn Linux Configuration_files/widget-areas.min.css" media="all">
+<link rel="stylesheet" id="generate-style-css" href="./Bash Scripting Tutorial - Linux Tutorials - Learn Linux Configuration_files/main.min.css" media="all">
+<style id="generate-style-inline-css">
+body{background-color:#ffffff;color:#444444;}a{color:#444444;}a:visited{color:#444444;}a:hover, a:focus, a:active{color:#e0314f;}.grid-container{max-width:1300px;}.wp-block-group__inner-container{max-width:1300px;margin-left:auto;margin-right:auto;}@media (max-width: 1111px) and (min-width: 1041px){.inside-header{display:flex;flex-direction:column;align-items:center;}.site-logo, .site-branding{margin-bottom:1.5em;}#site-navigation{margin:0 auto;}.header-widget{margin-top:1.5em;}}.site-header .header-image{width:250px;}.generate-back-to-top{font-size:20px;border-radius:3px;position:fixed;bottom:30px;right:30px;line-height:40px;width:40px;text-align:center;z-index:10;transition:opacity 300ms ease-in-out;opacity:0.1;transform:translateY(1000px);}.generate-back-to-top__show{opacity:1;transform:translateY(0);}.navigation-search{position:absolute;left:-99999px;pointer-events:none;visibility:hidden;z-index:20;width:100%;top:0;transition:opacity 100ms ease-in-out;opacity:0;}.navigation-search.nav-search-active{left:0;right:0;pointer-events:auto;visibility:visible;opacity:1;}.navigation-search input[type="search"]{outline:0;border:0;vertical-align:bottom;line-height:1;opacity:0.9;width:100%;z-index:20;border-radius:0;-webkit-appearance:none;height:60px;}.navigation-search input::-ms-clear{display:none;width:0;height:0;}.navigation-search input::-ms-reveal{display:none;width:0;height:0;}.navigation-search input::-webkit-search-decoration, .navigation-search input::-webkit-search-cancel-button, .navigation-search input::-webkit-search-results-button, .navigation-search input::-webkit-search-results-decoration{display:none;}.gen-sidebar-nav .navigation-search{top:auto;bottom:0;}:root{--contrast:#222222;--contrast-2:#575760;--contrast-3:#b2b2be;--base:#f0f0f0;--base-2:#f7f8f9;--base-3:#ffffff;--accent:#1e73be;}:root .has-contrast-color{color:var(--contrast);}:root .has-contrast-background-color{background-color:var(--contrast);}:root .has-contrast-2-color{color:var(--contrast-2);}:root .has-contrast-2-background-color{background-color:var(--contrast-2);}:root .has-contrast-3-color{color:var(--contrast-3);}:root .has-contrast-3-background-color{background-color:var(--contrast-3);}:root .has-base-color{color:var(--base);}:root .has-base-background-color{background-color:var(--base);}:root .has-base-2-color{color:var(--base-2);}:root .has-base-2-background-color{background-color:var(--base-2);}:root .has-base-3-color{color:var(--base-3);}:root .has-base-3-background-color{background-color:var(--base-3);}:root .has-accent-color{color:var(--accent);}:root .has-accent-background-color{background-color:var(--accent);}body, button, input, select, textarea{font-family:"Source Serif Pro", serif;font-size:18px;}body{line-height:1.6;}.entry-content > [class*="wp-block-"]:not(:last-child):not(.wp-block-heading){margin-bottom:1.5em;}.main-title{font-weight:normal;font-size:20px;}.site-description{font-size:16px;}.main-navigation a, .menu-toggle{font-weight:500;}.main-navigation .main-nav ul ul li a{font-size:14px;}.sidebar .widget, .footer-widgets .widget{font-size:16px;}button:not(.menu-toggle),html input[type="button"],input[type="reset"],input[type="submit"],.button,.wp-block-button .wp-block-button__link{font-weight:500;font-size:18px;}h1{font-family:"Oswald", sans-serif;font-size:40px;line-height:1.3em;}h2{font-family:"Oswald", sans-serif;font-size:28px;line-height:1.4em;}h3{font-family:"Oswald", sans-serif;font-size:22px;line-height:1.4em;}h4{font-family:"Oswald", sans-serif;font-size:22px;line-height:1.4em;}h5{text-transform:uppercase;font-size:inherit;}.site-info{font-size:14px;}@media (max-width:768px){.main-title{font-size:22px;}h1{font-size:36px;}h2{font-size:26px;}}.top-bar{background-color:#020202;color:#ffffff;}.top-bar a{color:#ffffff;}.top-bar a:hover{color:#f1c40f;}.site-header{background-color:#ffffff;color:#444444;}.site-header a{color:#444444;}.site-header a:hover{color:#e0314f;}.main-title a,.main-title a:hover{color:#444444;}.site-description{color:#666666;}.main-navigation .main-nav ul li a, .main-navigation .menu-toggle, .main-navigation .menu-bar-items{color:#444444;}.main-navigation .main-nav ul li:not([class*="current-menu-"]):hover > a, .main-navigation .main-nav ul li:not([class*="current-menu-"]):focus > a, .main-navigation .main-nav ul li.sfHover:not([class*="current-menu-"]) > a, .main-navigation .menu-bar-item:hover > a, .main-navigation .menu-bar-item.sfHover > a{color:#666666;}button.menu-toggle:hover,button.menu-toggle:focus{color:#444444;}.main-navigation .main-nav ul li[class*="current-menu-"] > a{color:#444444;}.navigation-search input[type="search"],.navigation-search input[type="search"]:active, .navigation-search input[type="search"]:focus, .main-navigation .main-nav ul li.search-item.active > a, .main-navigation .menu-bar-items .search-item.active > a{color:#222222;background-color:#fafafa;opacity:1;}.main-navigation ul ul{background-color:#fafafa;}.main-navigation .main-nav ul ul li a{color:#222222;}.main-navigation .main-nav ul ul li:not([class*="current-menu-"]):hover > a,.main-navigation .main-nav ul ul li:not([class*="current-menu-"]):focus > a, .main-navigation .main-nav ul ul li.sfHover:not([class*="current-menu-"]) > a{color:#666666;background-color:#fafafa;}.main-navigation .main-nav ul ul li[class*="current-menu-"] > a{color:#222222;background-color:#fafafa;}.separate-containers .inside-article, .separate-containers .comments-area, .separate-containers .page-header, .one-container .container, .separate-containers .paging-navigation, .inside-page-header{color:#444444;background-color:#ffffff;}.inside-article a,.paging-navigation a,.comments-area a,.page-header a{color:#3498db;}.inside-article a:hover,.paging-navigation a:hover,.comments-area a:hover,.page-header a:hover{color:#e0314f;}.entry-header h1,.page-header h1{color:#444444;}.entry-title a{color:#444444;}.entry-title a:hover{color:#e0314f;}.entry-meta{color:#666666;}.entry-meta a{color:#666666;}.entry-meta a:hover{color:#666666;}h1{color:#444444;}h2{color:#444444;}h3{color:#444444;}h4{color:#444444;}h5{color:#444444;}.sidebar .widget{color:#444444;background-color:#ffffff;}.sidebar .widget a{color:#444444;}.sidebar .widget a:hover{color:#e0314f;}.sidebar .widget .widget-title{color:#444444;}.footer-widgets{color:#444444;background-color:#fafafa;}.footer-widgets a{color:#444444;}.footer-widgets a:hover{color:#e0314f;}.footer-widgets .widget-title{color:#444444;}.site-info{color:#444444;background-color:#ffffff;}.site-info a{color:#444444;}.site-info a:hover{color:#e0314f;}.footer-bar .widget_nav_menu .current-menu-item a{color:#e0314f;}input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="search"],input[type="tel"],input[type="number"],textarea,select{color:#222222;background-color:#ffffff;}input[type="text"]:focus,input[type="email"]:focus,input[type="url"]:focus,input[type="password"]:focus,input[type="search"]:focus,input[type="tel"]:focus,input[type="number"]:focus,textarea:focus,select:focus{color:#222222;background-color:#ffffff;}button,html input[type="button"],input[type="reset"],input[type="submit"],a.button,a.wp-block-button__link:not(.has-background){color:#ffffff;background-color:#e0314f;}button:hover,html input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]:hover,a.button:hover,button:focus,html input[type="button"]:focus,input[type="reset"]:focus,input[type="submit"]:focus,a.button:focus,a.wp-block-button__link:not(.has-background):active,a.wp-block-button__link:not(.has-background):focus,a.wp-block-button__link:not(.has-background):hover{color:#ffffff;background-color:#444444;}a.generate-back-to-top{background-color:#e0314f;color:#ffffff;}a.generate-back-to-top:hover,a.generate-back-to-top:focus{background-color:rgba(224,49,79,0.8);color:#ffffff;}:root{--gp-search-modal-bg-color:var(--base-3);--gp-search-modal-text-color:var(--contrast);--gp-search-modal-overlay-bg-color:rgba(0,0,0,0.2);}@media (max-width: 1040px){.main-navigation .menu-bar-item:hover > a, .main-navigation .menu-bar-item.sfHover > a{background:none;color:#444444;}}.inside-top-bar{padding:2px 10px 3px 10px;}.inside-header{padding:30px 20px 30px 20px;}.nav-below-header .main-navigation .inside-navigation.grid-container, .nav-above-header .main-navigation .inside-navigation.grid-container{padding:0px;}.separate-containers .inside-article, .separate-containers .comments-area, .separate-containers .page-header, .separate-containers .paging-navigation, .one-container .site-content, .inside-page-header{padding:80px 20px 80px 20px;}.site-main .wp-block-group__inner-container{padding:80px 20px 80px 20px;}.separate-containers .paging-navigation{padding-top:20px;padding-bottom:20px;}.entry-content .alignwide, body:not(.no-sidebar) .entry-content .alignfull{margin-left:-20px;width:calc(100% + 40px);max-width:calc(100% + 40px);}.one-container.right-sidebar .site-main,.one-container.both-right .site-main{margin-right:20px;}.one-container.left-sidebar .site-main,.one-container.both-left .site-main{margin-left:20px;}.one-container.both-sidebars .site-main{margin:0px 20px 0px 20px;}.sidebar .widget, .page-header, .widget-area .main-navigation, .site-main > *{margin-bottom:40px;}.separate-containers .site-main{margin:40px;}.both-right .inside-left-sidebar,.both-left .inside-left-sidebar{margin-right:20px;}.both-right .inside-right-sidebar,.both-left .inside-right-sidebar{margin-left:20px;}.one-container.archive .post:not(:last-child):not(.is-loop-template-item), .one-container.blog .post:not(:last-child):not(.is-loop-template-item){padding-bottom:80px;}.separate-containers .featured-image{margin-top:40px;}.separate-containers .inside-right-sidebar, .separate-containers .inside-left-sidebar{margin-top:40px;margin-bottom:40px;}.main-navigation .main-nav ul li a,.menu-toggle,.main-navigation .menu-bar-item > a{line-height:30px;}.navigation-search input[type="search"]{height:30px;}.rtl .menu-item-has-children .dropdown-menu-toggle{padding-left:20px;}.rtl .main-navigation .main-nav ul li.menu-item-has-children > a{padding-right:20px;}.widget-area .widget{padding:20px;}.footer-widgets-container{padding:20px 20px 20px 50px;}.inside-site-info{padding:20px;}@media (max-width:768px){.separate-containers .inside-article, .separate-containers .comments-area, .separate-containers .page-header, .separate-containers .paging-navigation, .one-container .site-content, .inside-page-header{padding:80px 20px 80px 20px;}.site-main .wp-block-group__inner-container{padding:80px 20px 80px 20px;}.inside-header{padding-top:0px;}.footer-widgets-container{padding-top:20px;padding-right:30px;padding-bottom:20px;padding-left:30px;}.inside-site-info{padding-right:10px;padding-left:10px;}.entry-content .alignwide, body:not(.no-sidebar) .entry-content .alignfull{margin-left:-20px;width:calc(100% + 40px);max-width:calc(100% + 40px);}.one-container .site-main .paging-navigation{margin-bottom:40px;}}/* End cached CSS */.is-right-sidebar{width:25%;}.is-left-sidebar{width:25%;}.site-content .content-area{width:75%;}@media (max-width: 1040px){.main-navigation .menu-toggle,.sidebar-nav-mobile:not(#sticky-placeholder){display:block;}.main-navigation ul,.gen-sidebar-nav,.main-navigation:not(.slideout-navigation):not(.toggled) .main-nav > ul,.has-inline-mobile-toggle #site-navigation .inside-navigation > *:not(.navigation-search):not(.main-nav){display:none;}.nav-align-right .inside-navigation,.nav-align-center .inside-navigation{justify-content:space-between;}.has-inline-mobile-toggle .mobile-menu-control-wrapper{display:flex;flex-wrap:wrap;}.has-inline-mobile-toggle .inside-header{flex-direction:row;text-align:left;flex-wrap:wrap;}.has-inline-mobile-toggle .header-widget,.has-inline-mobile-toggle #site-navigation{flex-basis:100%;}.nav-float-left .has-inline-mobile-toggle #site-navigation{order:10;}}
+.dynamic-author-image-rounded{border-radius:100%;}.dynamic-featured-image, .dynamic-author-image{vertical-align:middle;}.one-container.blog .dynamic-content-template:not(:last-child), .one-container.archive .dynamic-content-template:not(:last-child){padding-bottom:0px;}.dynamic-entry-excerpt > p:last-child{margin-bottom:0px;}
+@media (max-width: 1024px){.main-navigation:not(.slideout-navigation) a, .main-navigation .menu-toggle, .main-navigation .menu-bar-items{font-size:22px;}.main-navigation:not(.slideout-navigation) .main-nav ul ul li a{font-size:19px;}.main-title, .navigation-branding .main-title{font-size:22px;}}@media (max-width: 1040px){.main-navigation:not(.slideout-navigation) a, .main-navigation .menu-toggle, .main-navigation .menu-bar-items{font-size:22px;}.main-navigation:not(.slideout-navigation) .main-nav ul ul li a{font-size:19px;}}
+@media (max-width: 1040px){.main-navigation .menu-toggle,.main-navigation .mobile-bar-items a,.main-navigation .menu-bar-item > a{padding-left:20px;padding-right:20px;}.main-navigation .main-nav ul li a,.main-navigation .menu-toggle,.main-navigation .mobile-bar-items a,.main-navigation .menu-bar-item > a{line-height:41px;}.main-navigation .site-logo.navigation-logo img, .mobile-header-navigation .site-logo.mobile-header-logo img, .navigation-search input[type="search"]{height:41px;}}.post-image:not(:first-child), .page-content:not(:first-child), .entry-content:not(:first-child), .entry-summary:not(:first-child), footer.entry-meta{margin-top:1em;}.post-image-above-header .inside-article div.featured-image, .post-image-above-header .inside-article div.post-image{margin-bottom:1em;}.main-navigation.slideout-navigation .main-nav > ul > li > a{line-height:60px;}
+</style>
+<style id="generateblocks-inline-css">
+.gb-button-wrapper{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:flex-start;clear:both;}.gb-button{text-decoration:none;}.gb-icon svg{fill:currentColor;}.gb-button-wrapper a.gb-button-ac59105c, .gb-button-wrapper a.gb-button-ac59105c:visited{padding:15px 20px;background-color:#0366d6;color:#ffffff;display:inline-flex;align-items:center;justify-content:center;text-align:center;}.gb-button-wrapper a.gb-button-ac59105c:hover, .gb-button-wrapper a.gb-button-ac59105c:active, .gb-button-wrapper a.gb-button-ac59105c:focus{background-color:#222222;color:#ffffff;}.gb-button-wrapper a.gb-button-9e8d3737, .gb-button-wrapper a.gb-button-9e8d3737:visited{padding:15px 20px;background-color:#0366d6;color:#ffffff;display:inline-flex;align-items:center;justify-content:center;text-align:center;}.gb-button-wrapper a.gb-button-9e8d3737:hover, .gb-button-wrapper a.gb-button-9e8d3737:active, .gb-button-wrapper a.gb-button-9e8d3737:focus{background-color:#222222;color:#ffffff;}.gb-button-wrapper a.gb-button-6841cab3, .gb-button-wrapper a.gb-button-6841cab3:visited{padding:15px 20px;background-color:#0366d6;color:#ffffff;display:inline-flex;align-items:center;justify-content:center;text-align:center;}.gb-button-wrapper a.gb-button-6841cab3:hover, .gb-button-wrapper a.gb-button-6841cab3:active, .gb-button-wrapper a.gb-button-6841cab3:focus{background-color:#222222;color:#ffffff;}.gb-icon svg{fill:currentColor;}.gb-highlight{background:none;color:unset;}
+</style>
+<link rel="stylesheet" id="generate-blog-images-css" href="./Bash Scripting Tutorial - Linux Tutorials - Learn Linux Configuration_files/featured-images.min.css" media="all">
+<link rel="stylesheet" id="generate-secondary-nav-css" href="./Bash Scripting Tutorial - Linux Tutorials - Learn Linux Configuration_files/main(1).min.css" media="all">
+<style id="generate-secondary-nav-inline-css">
+.secondary-navigation{background-color:#636363;}.secondary-nav-below-header .secondary-navigation .inside-navigation.grid-container, .secondary-nav-above-header .secondary-navigation .inside-navigation.grid-container{padding:0px;}.secondary-navigation .main-nav ul li a,.secondary-navigation .menu-toggle,.secondary-menu-bar-items .menu-bar-item > a{color:#ffffff;font-weight:bold;font-size:14px;line-height:27px;}.secondary-navigation .secondary-menu-bar-items{color:#ffffff;font-size:14px;}button.secondary-menu-toggle:hover,button.secondary-menu-toggle:focus{color:#ffffff;}.widget-area .secondary-navigation{margin-bottom:40px;}.secondary-navigation ul ul{background-color:#303030;top:auto;}.secondary-navigation .main-nav ul ul li a{color:#ffffff;font-size:13px;}.secondary-navigation .main-nav ul li:not([class*="current-menu-"]):hover > a, .secondary-navigation .main-nav ul li:not([class*="current-menu-"]):focus > a, .secondary-navigation .main-nav ul li.sfHover:not([class*="current-menu-"]) > a, .secondary-menu-bar-items .menu-bar-item:hover > a{color:#ffffff;background-color:#303030;}.secondary-navigation .main-nav ul ul li:not([class*="current-menu-"]):hover > a,.secondary-navigation .main-nav ul ul li:not([class*="current-menu-"]):focus > a,.secondary-navigation .main-nav ul ul li.sfHover:not([class*="current-menu-"]) > a{color:#ffffff;background-color:#474747;}.secondary-navigation .main-nav ul li[class*="current-menu-"] > a{color:#222222;background-color:#ffffff;}.secondary-navigation .main-nav ul ul li[class*="current-menu-"] > a{color:#ffffff;background-color:#474747;}.secondary-navigation.toggled .dropdown-menu-toggle:before{display:none;}@media (max-width: 1040px) {.secondary-menu-bar-items .menu-bar-item:hover > a{background: none;color: #ffffff;}}
+</style>
+<link rel="stylesheet" id="generate-secondary-nav-mobile-css" href="./Bash Scripting Tutorial - Linux Tutorials - Learn Linux Configuration_files/main-mobile.min.css" media="all">
+<link rel="stylesheet" id="generate-offside-css" href="./Bash Scripting Tutorial - Linux Tutorials - Learn Linux Configuration_files/offside.min.css" media="all">
+<style id="generate-offside-inline-css">
+.slideout-navigation.main-navigation{background-color:#e0314f;}.slideout-navigation.main-navigation .main-nav ul li a{color:#ffffff;font-weight:500;text-transform:none;font-size:18px;}.slideout-navigation.main-navigation ul ul{background-color:#222222;}.slideout-navigation.main-navigation .main-nav ul ul li a{color:#ffffff;}.slideout-navigation.main-navigation.do-overlay .main-nav ul ul li a{font-size:1em;font-size:17px;}@media (max-width:768px){.slideout-navigation.main-navigation .main-nav ul li a{font-size:18px;}.slideout-navigation.main-navigation .main-nav ul ul li a{font-size:17px;}}.slideout-navigation.main-navigation .main-nav ul li:not([class*="current-menu-"]):hover > a, .slideout-navigation.main-navigation .main-nav ul li:not([class*="current-menu-"]):focus > a, .slideout-navigation.main-navigation .main-nav ul li.sfHover:not([class*="current-menu-"]) > a{color:#f7f7f7;background-color:#e0314f;}.slideout-navigation.main-navigation .main-nav ul ul li:not([class*="current-menu-"]):hover > a, .slideout-navigation.main-navigation .main-nav ul ul li:not([class*="current-menu-"]):focus > a, .slideout-navigation.main-navigation .main-nav ul ul li.sfHover:not([class*="current-menu-"]) > a{color:#fafafa;background-color:#222222;}.slideout-navigation.main-navigation .main-nav ul li[class*="current-menu-"] > a{color:#ffffff;background-color:#e0314f;}.slideout-navigation.main-navigation .main-nav ul ul li[class*="current-menu-"] > a{color:#ffffff;background-color:#222222;}.slideout-navigation, .slideout-navigation a{color:#ffffff;}.slideout-navigation button.slideout-exit{color:#ffffff;padding-left:20px;padding-right:20px;}.slide-opened nav.toggled .menu-toggle:before{display:none;}@media (max-width: 1040px){.menu-bar-item.slideout-toggle{display:none;}}
+</style>
+<link rel="https://api.w.org/" href="https://linuxconfig.org/wp-json/"><link rel="alternate" type="application/json" href="https://linuxconfig.org/wp-json/wp/v2/posts/182"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://linuxconfig.org/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.5">
+<link rel="shortlink" href="https://linuxconfig.org/?p=182">
+<link rel="alternate" type="application/json+oembed" href="https://linuxconfig.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Flinuxconfig.org%2Fbash-scripting-tutorial">
+<link rel="alternate" type="text/xml+oembed" href="https://linuxconfig.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Flinuxconfig.org%2Fbash-scripting-tutorial&amp;format=xml">
+<link rel="pingback" href="https://linuxconfig.org/xmlrpc.php">
+<!--<base href="/">--><base href=".">
+<link href="./Bash Scripting Tutorial - Linux Tutorials - Learn Linux Configuration_files/prism.css" rel="stylesheet"><!--<script async="" src="https://cdn.fuseplatform.net/publift/tags/2/2224/fuse.js" type="text/javascript"></script>--><style>
+.posted-on .updated:before {
+content: "Last Updated: ";
+}
+</style><link rel="icon" href="https://linuxconfig.org/wp-content/uploads/2021/08/cropped-android-chrome-512x512-1-32x32.png" sizes="32x32">
+<link rel="icon" href="https://linuxconfig.org/wp-content/uploads/2021/08/cropped-android-chrome-512x512-1-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://linuxconfig.org/wp-content/uploads/2021/08/cropped-android-chrome-512x512-1-180x180.png">
+<meta name="msapplication-TileImage" content="https://linuxconfig.org/wp-content/uploads/2021/08/cropped-android-chrome-512x512-1-270x270.png">
+<style id="wp-custom-css">
+			/* GeneratePress Site CSS */ /* grey line under navigation */
+
+.site-header {
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+/* navigation subscribe underline */
+
+.main-navigation:not(.slideout-navigation) .main-nav li.subscribe-button a {
+	box-shadow: 0px -8px 0px #e0314f inset;
+	transition: all 0.6s ease 0s;
+	padding: 0px;
+	margin: 0px 20px
+}
+
+.main-navigation:not(.slideout-navigation) .main-nav li.subscribe-button a:hover {
+	box-shadow: 0px -16px 0px #e0314f inset;
+}
+
+/* wpsp meta spacing */
+
+.wp-show-posts-entry-meta {
+	margin-top: 10px;
+}
+
+/* wpsp column spacing */
+
+.wp-show-posts-columns .wp-show-posts-inner {
+	margin: 0px 0px 40px 60px;
+}
+
+/* mailchimp form styling */
+
+.mc4wp-form {
+	text-align: center;
+}
+
+.mc4wp-form input[type=text], .mc4wp-form input[type=email] {
+	background-color: #ffffff;	
+	line-height: 28px;
+  border: 1px solid #aaa;
+	border-radius: 0px;
+	margin: 2px;
+}
+ 
+.mc4wp-form input[type=submit] {
+	line-height: 30px;
+	border: none;
+  border-radius: 0px;
+	margin: 2px;
+  transition: all 0.5s ease 0s;
+}
+
+@media (max-width: 768px) {
+.mc4wp-form input[type=text], .mc4wp-form input[type=email], .mc4wp-form input[type=submit] {
+		width: 100%;
+	}
+}
+
+@media (min-width:1025px) {
+  .footer-widgets .footer-widget-1 {
+    flex-basis: 50%;
+		padding-right: 100px;
+  }
+  .footer-widgets .footer-widget-2 {
+    flex-basis: 20%;
+  }
+  .footer-widgets .footer-widget-3 {
+    flex-basis: 30%;
+  }
+}
+
+.mobile-header-navigation {
+	padding: 10px;
+} /* End GeneratePress Site CSS */
+
+.examples {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.steps {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.steps li {
+  counter-increment: step-counter;
+  margin-bottom: 50px;
+}
+
+.steps li::before {
+  content: "Step " counter(step-counter) "";
+  border-bottom: 0.5px solid black;
+line-height: 20pt;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-size: 100%;
+  background-color: rgb(200,200,200);
+  color: black;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+
+step {
+  border-bottom: 0.5px solid black;
+  line-height: 20pt;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-size: 100%;
+  background-color: rgb(200,200,200);
+  color: black;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+.methods {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.methods li {
+  counter-increment: method-counter;
+  margin-bottom: 50px;
+}
+
+.methods li::before {
+  content: "Method " counter(method-counter) "";
+  border-bottom: 0.5px solid black;
+  line-height: 20pt;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-size: 100%;
+  background-color: rgb(0,170,238);
+  color: white;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+
+.examples {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.examples li {
+  counter-increment: method-counter;
+  margin-bottom: 50px;
+}
+
+.examples li::before {
+  content: "Example " counter(method-counter) "";
+  border-bottom: 0.5px solid black;
+  line-height: 20pt;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-size: 100%;
+  background-color: rgb(0,0,0);
+  color: white;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+
+example {
+  border-bottom: 0.5px solid black;
+  line-height: 20pt;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-size: 100%;
+  background-color: rgb(0,0,0);
+  color: white;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+
+.options {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.options li {
+  counter-increment: method-counter;
+  margin-bottom: 50px;
+}
+
+.options li::before {
+  content: "Option " counter(method-counter) "";
+  border-bottom: 0.5px solid black;
+  line-height: 20pt;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-size: 100%;
+  background-color: rgb(106,15,89);
+  color: white;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+
+
+
+
+code, samp, kbd {
+	font-family: "Courier New", Courier, monospace, sans-serif;
+	text-align: left;
+	color: darkorange;
+	background: #fafafa;
+	padding: 3px 5px;	
+	font-weight: bold;
+	}
+pre code {
+	line-height: 1.6em;
+	font-size: 13px;
+	}
+pre {
+	padding: 0.em 0.5em 0.3em 0.7em;
+	border-left: 11px solid #02b1f0;
+	margin: 1.7em 0 1.7em 0.3em;
+	overflow: auto;
+	width: 100%;
+		font-family: "Courier New", Courier, monospace, sans-serif;
+	font-size: 15px;
+	line-height: 1.1em;
+	}
+/* target IE7 and IE6 */
+*:first-child+html pre {
+	padding-bottom: 2em;
+	overflow-y: hidden;
+	overflow: visible;
+	overflow-x: auto; 
+	}
+* html pre { 
+	padding-bottom: 2em;
+	overflow: visible;
+	overflow-x: auto;
+	}
+
+
+
+.uk-alert {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.uk-alert-success {
+  background-color: rgba(227, 253, 235, 1);
+  font-size: 19px;
+  border-color: rgba(38, 179, 3, 1);
+  color: rgba(60, 118, 61, 1);
+}
+
+.uk-alert-info {
+  background-color: rgba(217, 237, 247, 1);
+		font-size: 19px;
+  color: rgba(49, 112, 143, 1);
+  border-color: rgba(126, 182, 193, 1);
+}
+
+
+.uk-alert-warning {
+  background-color: rgba(252, 248, 227, 1);
+		font-size: 19px;
+  border-color: rgba(177, 161, 129, 1);
+  color: rgba(138, 109, 59, 1);
+}
+
+.uk-alert-danger {
+  background-color: rgba(248, 215, 218, 1);
+	font-size: 19px;
+  border-color: rgba(220, 53, 69, 1);
+  color: rgba(114, 28, 36,1);
+}
+
+.uk-thumbnail-caption{
+	font-size: 18px;
+	text-align: left;
+	font-style: italic;
+	position: relative;
+  bottom: 36px;
+	color: grey;
+	border-width: 1px solid #efefef;
+	padding: 3px 5px;
+
+}
+
+
+
+.uk-table{border-collapse:collapse;border-spacing:0;width:100%;margin-bottom:15px}*+.uk-table{margin-top:15px}.uk-table td,.uk-table th{padding:8px;border-bottom:1px solid #ddd}
+
+.uk-table th{text-align:left;background-color: rgba(53, 53, 53, 1);color: rgba(255, 255, 255, 1);}
+
+.uk-table thead th{vertical-align:bottom}
+
+.uk-table caption,.uk-table tfoot{font-size:12px;font-style:italic}.uk-table caption{text-align:left;color:#999}.uk-table tbody tr.uk-active{background:#f0f0f0}.uk-table-middle,.uk-table-middle td{vertical-align:middle!important}.uk-table-striped tbody tr:nth-of-type(odd){background:#fafafa}.uk-table-condensed td{padding:4px 8px}.uk-table-hover tbody tr:hover{background:#f0f0f0}.uk-form input,.uk-form select
+
+
+/* code for bash scripting beginner only */
+
+.uk-text-success {
+    color: #659f13!important;
+}
+.uk-text-warning {
+    color: #e28327!important;
+}
+
+.uk-text-primary {
+    color: #2d7091!important;
+}
+
+.uk-comment-primary .uk-comment-header {
+    border-color: rgba(45,112,145,.3);
+    background-color: #ebf7fd;
+    color: #2d7091;
+    text-shadow: 0 1px 0 #fff;
+}
+.uk-comment-header {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fafafa;
+}
+
+.uk-comment-avatar {
+    margin-right: 15px;
+    float: left;
+}
+.uk-comment-title {
+    margin: 5px 0 0;
+    font-size: 16px;
+    line-height: 22px;
+}
+/* sticky */
+@media(min-width: 769px) {
+    .both-sidebars .site-content {
+        display: flex;
+    }
+    #left-sidebar, #primary, #right-sidebar {
+        left: unset;
+    }
+    #left-sidebar {
+        order: -1;
+    }
+    .inside-left-sidebar, .inside-right-sidebar {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+   .incontent_ads {
+     height: 280px;
+		 overflow: hidden;
+   }
+ }
+ @media (max-width: 960px) {
+   .incontent_ads {
+     height: 250px;
+		 overflow: hidden;
+   }
+ }
+ @media (min-width: 961px) {
+   .incontent_ads {
+     height: 90px;
+		 overflow: hidden;
+   }
+}
+
+
+@media  {
+   .sticky_ads {
+     width: 301px;
+     height: 601px;
+     margin: 0 auto;
+   }
+ }
+@media  {
+   .sticky_ads1 {
+     width: 301px;
+     height: 251px;
+     margin: 0 auto;
+   }
+ }
+
+time.entry-date.published {
+    display: none;
+}
+
+/* Display updated date */
+.posted-on .updated {
+    display: inline-block;
+    margin-right: 0em;
+}
+
+
+@media (max-width: 768px) {
+    #right-sidebar {
+        display: none;
+    }
+}
+
+strong {
+    color: #9c5e00;
+}
+
+.uk-badge {
+    font-size: 1rem;
+}
+.uk-badge {
+    margin-right: 5px;
+}
+.uk-badge-warning {
+    background-color: #faa732;
+}
+.uk-badge {
+    display: inline-block;
+    padding: 0 5px;
+    background: #00a8e6;
+        background-color: rgb(0, 178, 230);
+
+    font-weight: 700;
+    line-height: 14px;
+    text-align: center;
+    text-transform: none;
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: px;
+    text-shadow: 0 1px 0 rgba(0,0,0,.1);
+}
+.uk-badge, a.uk-badge:hover {
+    color: #fff;
+}
+.uk-badge, .uk-close, .uk-overlay, .uk-overlay-area-content {
+    vertical-align: middle;
+}
+
+
+.footer-widgets .footer-widget-1 {
+    flex-basis: 30%;
+}
+
+.footer-widgets .footer-widget-2 {
+    flex-basis: 15%;
+}
+
+.footer-widgets .footer-widget-3 {
+    flex-basis: 25%;
+}
+
+.footer-widgets .footer-widget-4 {
+    flex-basis: 25%;
+}
+
+@media screen and (min-width: 800px) {
+.leaderboard-ad-wrapper {
+width: 929px;
+height: 90px;
+text-align: center;
+}
+
+.site-logo {
+    width: 480px !important;
+    height: auto;
+}
+}
+
+
+		</style>
+<link rel="preload" as="script" href="https://linuxconfig.org/wp-content/plugins/page-links-to/dist/new-tab.js?ver=3.3.7"><link rel="preload" as="script" href="https://linuxconfig.org/wp-content/themes/generatepress/assets/js/back-to-top.min.js?ver=3.4.0"><link rel="preload" as="script" href="https://linuxconfig.org/wp-content/themes/generatepress/assets/js/navigation-search.min.js?ver=3.4.0"><link rel="preload" as="script" href="https://linuxconfig.org/wp-content/themes/generatepress/assets/js/menu.min.js?ver=3.4.0"><link rel="preload" as="script" href="https://linuxconfig.org/wp-content/plugins/gp-premium/menu-plus/functions/js/offside.min.js?ver=2.2.2"><link rel="preload" as="script" href="https://linuxconfig.org/prism/prism.js"><link rel="preload" as="script" href="https://cdn.fuseplatform.net/publift/tags/2/2224/fuse.js"></head>
+<body class="post-template-default single single-post postid-182 single-format-standard wp-custom-logo wp-embed-responsive post-image-above-header post-image-aligned-center secondary-nav-above-header secondary-nav-aligned-left slideout-enabled slideout-mobile sticky-menu-slide page-id-182 right-sidebar nav-float-right one-container nav-search-enabled header-aligned-left dropdown-hover" itemtype="https://schema.org/Blog" itemscope="">
+<!--<script src="prism/prism.js" type="text/javascript"></script>--><a class="screen-reader-text skip-link" href="https://linuxconfig.org/#content" title="Skip to content">Skip to content</a> <nav id="secondary-navigation" class="secondary-navigation grid-container" itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope">
+<div class="inside-navigation grid-container grid-parent">
+<button class="menu-toggle secondary-menu-toggle">
+<span class="gp-icon icon-menu-bars"><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M0 96c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24z"></path></svg><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M71.029 71.029c9.373-9.372 24.569-9.372 33.942 0L256 222.059l151.029-151.03c9.373-9.372 24.569-9.372 33.942 0 9.372 9.373 9.372 24.569 0 33.942L289.941 256l151.03 151.029c9.372 9.373 9.372 24.569 0 33.942-9.373 9.372-24.569 9.372-33.942 0L256 289.941l-151.029 151.03c-9.373 9.372-24.569 9.372-33.942 0-9.372-9.373-9.372-24.569 0-33.942L222.059 256 71.029 104.971c-9.372-9.373-9.372-24.569 0-33.942z"></path></svg></span><span class="mobile-menu">Menu</span> </button>
+<div class="main-nav"><ul id="menu-top-bar-menu" class=" secondary-menu sf-menu"><li id="menu-item-9806" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-9806"><a href="https://linuxconfig.org/ubuntu">Ubuntu<span role="presentation" class="dropdown-menu-toggle"><span class="gp-icon icon-arrow"><svg viewBox="0 0 330 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M305.913 197.085c0 2.266-1.133 4.815-2.833 6.514L171.087 335.593c-1.7 1.7-4.249 2.832-6.515 2.832s-4.815-1.133-6.515-2.832L26.064 203.599c-1.7-1.7-2.832-4.248-2.832-6.514s1.132-4.816 2.832-6.515l14.162-14.163c1.7-1.699 3.966-2.832 6.515-2.832 2.266 0 4.815 1.133 6.515 2.832l111.316 111.317 111.316-111.317c1.7-1.699 4.249-2.832 6.515-2.832s4.815 1.133 6.515 2.832l14.162 14.163c1.7 1.7 2.833 4.249 2.833 6.515z"></path></svg></span></span></a>
+<ul class="sub-menu">
+<li id="menu-item-9807" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-9807"><a href="https://linuxconfig.org/ubuntu-20-04-guide">Ubuntu 20.04 Guide</a></li>
+<li id="menu-item-9814" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-9814"><a href="https://linuxconfig.org/ubuntu-18-04">Ubuntu 18.04</a></li>
+</ul>
+</li>
+<li id="menu-item-9808" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-9808"><a href="https://linuxconfig.org/debian">Debian</a></li>
+<li id="menu-item-9809" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-9809"><a href="https://linuxconfig.org/redhat">Redhat / CentOS / AlmaLinux</a></li>
+<li id="menu-item-9817" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-9817"><a href="https://linuxconfig.org/fedora">Fedora</a></li>
+<li id="menu-item-9810" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-9810"><a href="https://linuxconfig.org/kali-linux">Kali Linux</a></li>
+</ul></div> </div>
+</nav>
+<header class="site-header has-inline-mobile-toggle" id="masthead" aria-label="Site" itemtype="https://schema.org/WPHeader" itemscope="">
+<div class="inside-header grid-container">
+<div class="site-logo">
+<a href="https://linuxconfig.org/" rel="home">
+<img class="header-image is-logo-image" alt="Linux Tutorials – Learn Linux Configuration" src="./Bash Scripting Tutorial - Linux Tutorials - Learn Linux Configuration_files/logo-lx.avif" width="250" height="70">
+</a>
+</div> <nav class="main-navigation mobile-menu-control-wrapper" id="mobile-menu-control-wrapper" aria-label="Mobile Toggle">
+<div class="menu-bar-items"><span class="menu-bar-item search-item"><a aria-label="Open Search Bar" href="https://linuxconfig.org/#"><span class="gp-icon icon-search"><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path fill-rule="evenodd" clip-rule="evenodd" d="M208 48c-88.366 0-160 71.634-160 160s71.634 160 160 160 160-71.634 160-160S296.366 48 208 48zM0 208C0 93.125 93.125 0 208 0s208 93.125 208 208c0 48.741-16.765 93.566-44.843 129.024l133.826 134.018c9.366 9.379 9.355 24.575-.025 33.941-9.379 9.366-24.575 9.355-33.941-.025L337.238 370.987C301.747 399.167 256.839 416 208 416 93.125 416 0 322.875 0 208z"></path></svg><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M71.029 71.029c9.373-9.372 24.569-9.372 33.942 0L256 222.059l151.029-151.03c9.373-9.372 24.569-9.372 33.942 0 9.372 9.373 9.372 24.569 0 33.942L289.941 256l151.03 151.029c9.372 9.373 9.372 24.569 0 33.942-9.373 9.372-24.569 9.372-33.942 0L256 289.941l-151.029 151.03c-9.373 9.372-24.569 9.372-33.942 0-9.372-9.373-9.372-24.569 0-33.942L222.059 256 71.029 104.971c-9.372-9.373-9.372-24.569 0-33.942z"></path></svg></span></a></span></div> <button data-nav="site-navigation" class="menu-toggle" aria-controls="generate-slideout-menu" aria-expanded="false">
+<span class="gp-icon icon-menu-bars"><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M0 96c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24z"></path></svg><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M71.029 71.029c9.373-9.372 24.569-9.372 33.942 0L256 222.059l151.029-151.03c9.373-9.372 24.569-9.372 33.942 0 9.372 9.373 9.372 24.569 0 33.942L289.941 256l151.03 151.029c9.372 9.373 9.372 24.569 0 33.942-9.373 9.372-24.569 9.372-33.942 0L256 289.941l-151.029 151.03c-9.373 9.372-24.569 9.372-33.942 0-9.372-9.373-9.372-24.569 0-33.942L222.059 256 71.029 104.971c-9.372-9.373-9.372-24.569 0-33.942z"></path></svg></span><span class="screen-reader-text">Menu</span> </button>
+</nav>
+<nav class="main-navigation has-menu-bar-items sub-menu-right" id="site-navigation" aria-label="Primary" itemtype="https://schema.org/SiteNavigationElement" itemscope="">
+<div class="inside-navigation">
+<form method="get" class="search-form navigation-search" action="https://linuxconfig.org/">
+<input type="search" class="search-field" value="" name="s" title="Search">
+</form> <button class="menu-toggle" aria-controls="generate-slideout-menu" aria-expanded="false">
+<span class="gp-icon icon-menu-bars"><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M0 96c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24z"></path></svg><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M71.029 71.029c9.373-9.372 24.569-9.372 33.942 0L256 222.059l151.029-151.03c9.373-9.372 24.569-9.372 33.942 0 9.372 9.373 9.372 24.569 0 33.942L289.941 256l151.03 151.029c9.372 9.373 9.372 24.569 0 33.942-9.373 9.372-24.569 9.372-33.942 0L256 289.941l-151.029 151.03c-9.373 9.372-24.569 9.372-33.942 0-9.372-9.373-9.372-24.569 0-33.942L222.059 256 71.029 104.971c-9.372-9.373-9.372-24.569 0-33.942z"></path></svg></span><span class="screen-reader-text">Menu</span> </button>
+<div id="primary-menu" class="main-nav"><ul id="menu-top-main-menu" class=" menu sf-menu"><li id="menu-item-9640" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-9640"><a href="https://linuxconfig.org/linux-tutorials">Linux Tutorials</a></li>
+<li id="menu-item-8425" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8425"><a href="https://linuxconfig.org/system-administration-configuration">System Admin</a></li>
+<li id="menu-item-8426" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-8426"><a href="https://linuxconfig.org/programming-scripting">Programming</a></li>
+<li id="menu-item-8427" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8427"><a href="https://linuxconfig.org/multimedia-games">Multimedia</a></li>
+<li id="menu-item-8525" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8525"><a rel="nofollow noopener noreferrer" href="https://forum.linuxconfig.org/">Forum</a></li>
+<li id="menu-item-9641" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9641"><a href="https://linuxconfig.org/linux-commands">Linux Commands</a></li>
+<li id="menu-item-8526" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8526"><a rel="nofollow noopener noreferrer" href="https://linuxconfig.org/linuxcareers-com-linux-job-portal">Linux Jobs</a></li>
+</ul></div><div class="menu-bar-items"><span class="menu-bar-item search-item"><a aria-label="Open Search Bar" href="https://linuxconfig.org/#"><span class="gp-icon icon-search"><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path fill-rule="evenodd" clip-rule="evenodd" d="M208 48c-88.366 0-160 71.634-160 160s71.634 160 160 160 160-71.634 160-160S296.366 48 208 48zM0 208C0 93.125 93.125 0 208 0s208 93.125 208 208c0 48.741-16.765 93.566-44.843 129.024l133.826 134.018c9.366 9.379 9.355 24.575-.025 33.941-9.379 9.366-24.575 9.355-33.941-.025L337.238 370.987C301.747 399.167 256.839 416 208 416 93.125 416 0 322.875 0 208z"></path></svg><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M71.029 71.029c9.373-9.372 24.569-9.372 33.942 0L256 222.059l151.029-151.03c9.373-9.372 24.569-9.372 33.942 0 9.372 9.373 9.372 24.569 0 33.942L289.941 256l151.03 151.029c9.372 9.373 9.372 24.569 0 33.942-9.373 9.372-24.569 9.372-33.942 0L256 289.941l-151.029 151.03c-9.373 9.372-24.569 9.372-33.942 0-9.372-9.373-9.372-24.569 0-33.942L222.059 256 71.029 104.971c-9.372-9.373-9.372-24.569 0-33.942z"></path></svg></span></a></span></div><div class="leaderboard-ad-wrapper" data-fuse="22413944646"></div> </div>
+</nav>
+<div class="header-widget">
+</div>
+</div>
+</header>
+<div class="site grid-container container hfeed" id="page">
+<div class="site-content" id="content">
+<div class="content-area" id="primary">
+<main class="site-main" id="main">
+<article id="post-182" class="post-182 post type-post status-publish format-standard has-post-thumbnail hentry category-programming-scripting tag-bash tag-beginner tag-programming tag-scripting wpautop" itemtype="https://schema.org/CreativeWork" itemscope="">
+<div class="inside-article">
+<header class="entry-header">
+<h1 class="entry-title" itemprop="headline">Bash Scripting Tutorial</h1> <div class="entry-meta">
+<span class="posted-on"><time class="entry-date updated-date" datetime="2023-12-07T17:48:21+11:00" itemprop="dateModified">7 December 2023</time></span> <span class="byline">by <span class="author vcard" itemprop="author" itemtype="https://schema.org/Person" itemscope=""><a class="url fn n" href="https://linuxconfig.org/author/luke" title="View all posts by Luke Reynolds" rel="author" itemprop="url"><span class="author-name" itemprop="name">Luke Reynolds</span></a></span></span> </div>
+</header>
+<div class="entry-content" itemprop="text">
+<p>The Bash shell is one of the most powerful components of a <a href="https://linuxconfig.org/linux-download" target="_blank" rel="noopener">Linux system</a>, as well as one of the most compelling reasons to use Linux. Users can interact with Bash through the <a href="https://linuxconfig.org/linux-command-line-tutorial" target="_blank" rel="noopener">command line</a>, and write scripts to automate tasks. Although this may sound intimidating to beginning users, it is not hard to get started with Bash scripting.<br>
+<span id="more-182"></span><br>
+Bash scripts are essentially just a sequence of the same Linux commands that you would ordinarily use every day. That means that if you regularly use the Linux command line, then Bash scripts are pretty simple. Anything that exists in a Bash script can also be executed in the command line. In this tutorial, we will take you through various examples of Bash scripts to show you what it is capable of, and how to utilize different aspects of Bash.</p>
+<p>To go from beginner to expert in Bash scripting, you can star by copying some of our examples on to your own system. Use the scripts in this Bash scripting tutorial to modify them, execute them, and keep practicing. We will help you through all the essential aspects of Bash. Let’s begin!</p>
+<p><strong>In this Bash scripting tutorial you will learn:</strong></p>
+<ul>
+<li>How to write your first Hello World Bash script</li>
+<li>How to pass arguments to a Bash script</li>
+<li>How to use global and local variables in Bash</li>
+<li>How to read user input</li>
+<li>How to load and read arrays in Bash</li>
+<li>How to compare integers and strings</li>
+<li>How to detect file types in Bash</li>
+<li>How to use <code>for</code>, <code>while</code>, and <code>until</code> loops</li>
+<li>How to use functions in Bash</li>
+<li>How to use <code>if</code> statements</li>
+<li>How to use <code>case</code> statements</li>
+<li>How to use quotes and special characters in Bash</li>
+<li>How to perform arithmetic calculations with Bash</li>
+<li>How to use Bash redirection</li>
+</ul>
+<figure id="attachment_13072" aria-describedby="caption-attachment-13072" style="width: 1190px" class="wp-caption alignnone"><img fetchpriority="high" decoding="async" class="size-full wp-image-13072" src="./Bash Scripting Tutorial - Linux Tutorials - Learn Linux Configuration_files/00-bash-scripting-tutorial.avif" alt="Bash Scripting Tutorial" width="1200" height="570"><figcaption id="caption-attachment-13072" class="wp-caption-text">Bash Scripting Tutorial</figcaption></figure>
+<table class="uk-table uk-table-striped uk-table-condensed">
+<caption>Software Requirements and Linux Command Line Conventions</caption>
+<thead>
+<tr>
+<th>Category</th>
+<th>Requirements, Conventions or Software Version Used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>System</td>
+<td><a href="https://linuxconfig.org/linux-download" target="_blank" rel="noopener">Linux system</a></td>
+</tr>
+<tr>
+<td>Software</td>
+<td>Bash shell (installed by default)</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>Privileged access to your Linux system as root or via the <code>sudo</code> command.</td>
+</tr>
+<tr>
+<td>Conventions</td>
+<td><b>#</b> – requires given <a href="https://linuxconfig.org/linux-commands" target="_blank" rel="noopener">linux commands</a> to be executed with root privileges either directly as a root user or by use of <code>sudo</code> command<br>
+<b>$</b> – requires given <a href="https://linuxconfig.org/linux-commands" target="_blank" rel="noopener">linux commands</a> to be executed as a regular non-privileged user</td>
+</tr>
+</tbody>
+</table>
+<div class="uk-alert uk-alert-success"><center><b>NOTE</b><br>
+For more verbose and beginner style Bash scripting tutorial visit our <a href="https://linuxconfig.org/bash-scripting-tutorial-for-beginners" target="_blank" rel="noopener">Bash Scripting Tutorial for Beginners</a>.</center></div>
+<h2>Hello World Bash Shell Script – Bash Scripting Tutorial</h2>
+<hr><div class="incontent_ads" data-fuse="22189504506"></div><hr>
+<ol class="steps">
+<li>First you need to find out where is your Bash interpreter located. Enter the following into your command line:
+<pre>$ which bash
+/bin/bash
+</pre>
+<p>This command reveals that the Bash shell is stored in <code>/bin/bash</code>. This will come into play momentarily.</p></li>
+<li>The next thing you need to do is open our favorite text editor and create a file called <code>hello_world.sh</code>. We will use nano for this step.
+<pre>$ nano hello_world.sh
+</pre>
+</li>
+<li>Copy and paste the following lines into the new file:
+<pre>#!/bin/bash
+# declare STRING variable
+STRING="Hello World"
+# print variable on a screen
+echo $STRING
+</pre>
+<p>NOTE: Every bash shell script in this tutorial starts with a shebang: <code>#!</code> which is not read as a comment. First line is also a place where you put your interpreter which is in this case: <code>/bin/bash</code>.</p></li>
+<li>Navigate to the directory where your <code>hello_world.sh</code> script is located and make the file executable:
+<pre>$ chmod +x hello_world.sh 
+</pre>
+</li>
+<li>Now you are ready to execute your first bash script:
+<pre>$ ./hello_world.sh 
+</pre>
+<p>The output you receive should simply be:</p>
+<pre>Hello World
+</pre>
+</li>
+</ol>
+<h2>Simple Backup bash shell script</h2>
+<p>When writing a Bash script, you are basically putting into it the same commands that you could execute directly on the command line. A perfect example of this is the following script:</p>
+<pre>#!/bin/bash
+tar -czf myhome_directory.tar.gz /home/linuxconfig
+</pre>
+<p>This will create a compressed tar file of the home directory for user <code>linuxconfig</code>. The <code>tar</code> command we use in the script could easily just be executed directly on the command line.</p>
+<p>So, what’s the advantage of the script? Well, it allows us to quickly call this command without having to remember it or type it every time. We could also easily expand the script later on to be more complex.</p>
+<h2>Variables in Bash scripts</h2>
+<p>In this example we declare simple bash variable <code>$STRING</code> and print it on the screen (stdout) with <code>echo</code> command.</p>
+<pre>#!/bin/bash
+STRING="HELLO WORLD!!!"
+echo $STRING 
+</pre>
+<p>The result when we execute the script:</p>
+<pre>$ ./hello_world.sh
+HELLO WORLD!!!
+</pre>
+<p>Circling back to our backup script example, let’s use a variable to name our backup file and put a time stamp in the file name by using the <code>date</code> command.</p>
+<pre>#!/bin/bash
+OF=myhome_directory_$(date +%Y%m%d).tar.gz
+tar -czf $OF /home/linuxconfig 
+</pre>
+<p>The result of executing the script:</p>
+<pre>$ ./backup.sh
+$ ls
+myhome_directory_$(date +20220209).tar.gz
+</pre>
+<p>Now, when we see the file, we can quickly determine that the backup was performed on February 9, 2022.</p>
+<h3>Global vs. Local variables</h3>
+<p>In Bash scripting, a global variable is a variable that can be used anywhere inside the script. A local variable will only be used within the function that it is declared in. Check out the example below where we declare both a global variable and local variable. We’ve made some comments in the script to make it a little easier to digest.</p>
+<pre>#!/bin/bash
+# Define bash global variable
+# This variable is global and can be used anywhere in this bash script
+VAR="global variable"
+
+function bash {
+# Define bash local variable
+# This variable is local to bash function only
+local VAR="local variable"
+echo $VAR
+}
+
+echo $VAR
+bash
+# Note the bash global variable did not change
+# "local" is bash reserved word
+echo $VAR
+</pre>
+<p>The result of executing this script:</p>
+<pre>$ ./variables.sh
+global variable
+local variable
+global variable
+</pre>
+<h2>Passing arguments to the bash scripting tutorial</h2>
+<p>When executing a Bash script, it is possible to pass arguments to it in your command. As you can see in the example below, there are multiple ways that a Bash script can interact with the arguments we provide.</p>
+<pre>#!/bin/bash
+# use predefined variables to access passed arguments
+#echo arguments to the shell
+echo $1 $2 $3 ' -&gt; echo $1 $2 $3'
+
+# We can also store arguments from bash command line in special array
+args=("$@")
+#echo arguments to the shell
+echo ${args[0]} ${args[1]} ${args[2]} ' -&gt; args=("$@"); echo ${args[0]} ${args[1]} ${args[2]}'
+
+#use $@ to print out all arguments at once
+echo $@ ' -&gt; echo $@'
+
+# use $# variable to print out
+# number of arguments passed to the bash script
+echo Number of arguments passed: $# ' -&gt; echo Number of arguments passed: $#' 
+</pre>
+<p>Let’s try executing this script and providing three arguments.</p>
+<pre>$ ./arguments.sh Bash Scripting Tutorial
+</pre>
+<p>The results when we execute this script:</p>
+<pre>Bash Scripting Tutorial  -&gt; echo $1 $2 $3
+Bash Scripting Tutorial  -&gt; args=("$@"); echo ${args[0]} ${args[1]} ${args[2]}
+Bash Scripting Tutorial  -&gt; echo $@
+Number of arguments passed: 3  -&gt; echo Number of arguments passed: $#
+</pre>
+<hr><div class="incontent_ads" data-fuse="22189504224"></div><hr>
+<h2>Executing shell commands with bash</h2>
+<p>The best way to execute a separate shell command inside of a Bash script is by creating a new subshell through the <code>$( )</code> syntax. Check the example below where we echo the result of running the <code>uname -o</code> command.</p>
+<pre>#!/bin/bash
+# use a subshell $() to execute shell command
+echo $(uname -o)
+# executing bash command without subshell
+echo uname -o 
+</pre>
+<p>Notice that in the final line of our script, we do not execute the <code>uname</code> command within a subshell, therefore the text is taken literally and output as such.</p>
+<pre>$ uname -o
+GNU/LINUX
+$ ./subshell.sh
+GNU/LINUX
+uname -o
+</pre>
+<h2>Reading User Input</h2>
+<p>We can use the <code>read</code> command to read input from the user. This allows a user to interact with a Bash script and help dictate the way it proceeds. Here’s an example:</p>
+<pre>#!/bin/bash
+ 
+echo -e "Hi, please type the word: \c "
+read  word
+echo "The word you entered is: $word"
+echo -e "Can you please enter two words? "
+read word1 word2
+echo "Here is your input: \"$word1\" \"$word2\""
+echo -e "How do you feel about bash scripting? "
+# read command now stores a reply into the default build-in variable $REPLY
+read
+echo "You said $REPLY, I'm glad to hear that! "
+echo -e "What are your favorite colours ? "
+# -a makes read command to read into an array
+read -a colours
+echo "My favorite colours are also ${colours[0]}, ${colours[1]} and ${colours[2]}:-)"
+</pre>
+<p>Our Bash script asks multiple questions and then is able to repeat the information back to us through variables and arrays:</p>
+<pre>$ ./read.sh
+Hi, please type the word: Linuxconfig.org
+The word you entered is: Linuxconfig.org
+Can you please enter two words? 
+Debian Linux
+Here is your input: "Debian" "Linux"
+How do you feel about bash scripting? 
+good
+You said good, I'm glad to hear that! 
+What are your favorite colours ? 
+blue green black
+My favorite colours are also blue, green and black:-)
+</pre>
+<h2>Bash Trap Command</h2>
+<p>The <code>trap</code> command can be used in Bash scripts to catch signals sent to the script and then execute a subroutine when they occur. The script below will detect a <code>Ctrl + C</code> interrupt.</p>
+<pre>#!/bin/bash
+# bash trap command
+trap bashtrap INT
+# bash clear screen command
+clear;
+# bash trap function is executed when CTRL-C is pressed:
+# bash prints message =&gt; Executing bash trap subrutine !
+bashtrap()
+{
+    echo "CTRL+C Detected !...executing bash trap !"
+}
+# for loop from 1/10 to 10/10
+for a in `seq 1 10`; do
+    echo "$a/10 to Exit." 
+    sleep 1;
+done
+echo "Exit Bash Trap Example!!!" 
+</pre>
+<p>In the output below you can see that we try to <code>Ctrl + C</code> two times but the script continues to execute.</p>
+<pre>$ ./trap.sh
+1/10 to Exit.
+2/10 to Exit.
+^CCTRL+C Detected !...executing bash trap !
+3/10 to Exit.
+4/10 to Exit.
+5/10 to Exit.
+6/10 to Exit.
+7/10 to Exit.
+^CCTRL+C Detected !...executing bash trap !
+8/10 to Exit.
+9/10 to Exit.
+10/10 to Exit.
+Exit Bash Trap Example!!!
+</pre>
+<h2>Arrays – Bash script tutorial</h2>
+<p>Bash is capable of storing values in arrays. Check the sections below for two different examples.</p>
+<h3>Declare simple bash array</h3>
+<p>This example declares an array with four elements.</p>
+<pre>#!/bin/bash
+#Declare array with 4 elements
+ARRAY=( 'Debian Linux' 'Redhat Linux' Ubuntu Linux )
+# get number of elements in the array
+ELEMENTS=${#ARRAY[@]}
+
+# echo each element in array 
+# for loop
+for (( i=0;i&lt;$ELEMENTS;i++)); do
+    echo ${ARRAY[${i}]}
+done 
+</pre>
+<p>Executing the script will output the elements of our array:</p>
+<pre>$ ./arrays.sh
+Debian Linux
+Redhat Linux
+Ubuntu
+Linux
+</pre>
+<h3>Read file into bash array</h3>
+<p>Rather than filling out all of the elements of our array in the Bash script itself, we can program our script to read input and put it into an array.</p>
+<pre>#!/bin/bash
+# Declare array
+declare -a ARRAY
+# Link filedescriptor 10 with stdin
+exec 10&lt;&amp;0
+# stdin replaced with a file supplied as a first argument
+exec &lt; $1
+let count=0
+
+while read LINE; do
+
+    ARRAY[$count]=$LINE
+    ((count++))
+done
+
+echo Number of elements: ${#ARRAY[@]}
+# echo array's content
+echo ${ARRAY[@]}
+# restore stdin from filedescriptor 10
+# and close filedescriptor 10
+exec 0&lt;&amp;10 10&lt;&amp;-
+</pre>
+<p>Now let’s execute the script and store four elements in the array by using a file’s contents for input.<br>
+</p><hr><div class="incontent_ads" data-fuse="22189504509"></div><hr><p></p>
+<pre>$ cat bash.txt
+Bash
+Scripting
+Tutorial
+Guide
+$ ./bash-script.sh bash.txt 
+Number of elements: 4
+Bash Scripting Tutorial Guide
+</pre>
+<h2>Bash if / else / fi statements</h2>
+<p>Here is a simple <code>if</code> statement that check to see if a directory exists or not. Depending on the result, it will do one of two things. Please note the spacing inside the <code>[</code> and <code>]</code> brackets! Without the spaces, it won’t work!</p>
+<pre>#!/bin/bash
+directory="./BashScripting"
+
+# bash check if directory exists
+if [ -d $directory ]; then
+	echo "Directory exists"
+else 
+	echo "Directory does not exist"
+fi
+</pre>
+<p>The output:</p>
+<pre>$ ./bash_if_else.sh
+Directory does not exist
+$ mkdir BashScripting
+$ ./bash_if_else.sh
+Directory exists
+</pre>
+<h3>Nested if/else</h3>
+<p>It is possible to place an <code>if</code> statement inside yet another <code>if</code> statement. This is called nesting. Scripts can get a bit complex depending on how many <code>if</code> statements deep it is.</p>
+<pre>#!/bin/bash
+ 
+# Declare variable choice and assign value 4
+choice=4
+# Print to stdout
+ echo "1. Bash"
+ echo "2. Scripting"
+ echo "3. Tutorial"
+ echo -n "Please choose a word [1,2 or 3]? "
+# Loop while the variable choice is equal 4
+# bash while loop
+while [ $choice -eq 4 ]; do
+ 
+# read user input
+read choice
+# bash nested if/else
+if [ $choice -eq 1 ] ; then
+ 
+        echo "You have chosen word: Bash"
+
+else                   
+
+        if [ $choice -eq 2 ] ; then
+                 echo "You have chosen word: Scripting"
+        else
+         
+                if [ $choice -eq 3 ] ; then
+                        echo "You have chosen word: Tutorial"
+                else
+                        echo "Please make a choice between 1-3 !"
+                        echo "1. Bash"
+                        echo "2. Scripting"
+                        echo "3. Tutorial"
+                        echo -n "Please choose a word [1,2 or 3]? "
+                        choice=4
+                fi   
+        fi
+fi
+done 
+</pre>
+<p>Output from the script:</p>
+<pre>$ ./nested_if_else.sh 
+1. Bash
+2. Scripting
+3. Tutorial
+Please choose a word [1,2 or 3]? 5
+Please make a choice between 1-3 !
+1. Bash
+2. Scripting
+3. Tutorial
+Please choose a word [1,2 or 3]? 2
+You have chosen word: Scripting
+</pre>
+<h2>Bash Comparisons</h2>
+<p>Bash can compare two or more values, either integers or strings, to determine if they are equal to each other, or one is greater than the other, etc.</p>
+<h3>Arithmetic Comparisons</h3>
+<hr><div class="incontent_ads" data-fuse="22189504506"></div><hr>
+<table border="1">
+<tbody>
+<tr>
+<td width="50">-lt</td>
+<td width="50">&lt;</td>
+</tr>
+<tr>
+<td width="50">-gt</td>
+<td width="50">&gt;</td>
+</tr>
+<tr>
+<td width="50">-le</td>
+<td width="50">&lt;=</td>
+</tr>
+<tr>
+<td width="50">-ge</td>
+<td width="50">&gt;=</td>
+</tr>
+<tr>
+<td width="50">-eq</td>
+<td width="50">==</td>
+</tr>
+<tr>
+<td width="50">-ne</td>
+<td width="50">!=</td>
+</tr>
+</tbody>
+</table>
+<ol class="examples">
+<li>Now let’s use these operators in some examples.
+<pre>#!/bin/bash
+# declare integers
+NUM1=2
+NUM2=2
+if [ $NUM1 -eq $NUM2 ]; then
+	echo "Both values are equal"
+else 
+	echo "Values are NOT equal"
+fi 
+</pre>
+<p>The result:</p>
+<pre>$ ./statement.sh
+Both values are equal
+</pre>
+</li>
+<li>Let’s try changing one of the numbers.
+<pre>#!/bin/bash
+# declare integers
+NUM1=2
+NUM2=1
+if [ $NUM1 -eq $NUM2 ]; then
+	echo "Both Values are equal"
+else 
+	echo "Values are NOT equal"
+fi 
+</pre>
+<p>The result:</p>
+<pre>$ ./statement.sh
+Values are NOT equal
+</pre>
+</li>
+<li>Let’s add a little more complexity by including an <code>elif</code> statement and determing which number is larger.
+<pre>#!/bin/bash
+# declare integers
+NUM1=2
+NUM2=1
+if   [ $NUM1 -eq $NUM2 ]; then
+	echo "Both values are equal"
+elif [ $NUM1 -gt $NUM2 ]; then
+	echo "NUM1 is greater than NUM2"
+else 
+	echo "NUM2 is greater than NUM1"
+fi
+</pre>
+<p>The result:</p>
+<pre>$ ./statement.sh
+NUM1 is greater than NUM2
+</pre>
+</li>
+</ol>
+<h3>String Comparisons</h3>
+<table border="1">
+<tbody>
+<tr>
+<td width="50">=</td>
+<td width="200">equal</td>
+</tr>
+<tr>
+<td width="50">!=</td>
+<td width="50">not equal</td>
+</tr>
+<tr>
+<td width="50">&lt;</td>
+<td width="50">less then</td>
+</tr>
+<tr>
+<td width="50">&gt;</td>
+<td width="50">greater then</td>
+</tr>
+<tr>
+<td width="50">-n s1</td>
+<td width="50">string s1 is not empty</td>
+</tr>
+<tr>
+<td width="50">-z s1</td>
+<td width="50">string s1 is empty</td>
+</tr>
+</tbody>
+</table>
+<ol class="steps">
+<li>Let’s try comparing two strings to see if they are equal.
+<pre>#!/bin/bash
+#Declare string S1
+S1="Bash"
+#Declare string S2
+S2="Scripting"
+if [ $S1 = $S2 ]; then
+	echo "Both Strings are equal"
+else 
+	echo "Strings are NOT equal"
+fi 
+</pre>
+<p>The result:</p>
+<pre>$ ./statement.sh
+Strings are NOT equal
+</pre>
+</li>
+<li>And again with both string matching.<br>
+<hr><div class="incontent_ads" data-fuse="22189504224"></div><hr><p></p>
+<pre>#!/bin/bash
+#Declare string S1
+S1="Bash"
+#Declare string S2
+S2="Bash"
+if [ $S1 = $S2 ]; then
+	echo "Both Strings are equal"
+else 
+	echo "Strings are NOT equal"
+fi 
+</pre>
+<p>The result:</p>
+<pre>$ ./statement.sh
+Both Strings are equal
+</pre>
+</li>
+</ol>
+<h2>Bash File Testing</h2>
+<p>In Bash, we can test to see different characteristics about a file or directory. See the table below for a full list.</p>
+<table border="0">
+<tbody>
+<tr>
+<td width="140">-b filename</td>
+<td width="500">Block special file</td>
+</tr>
+<tr>
+<td width="100">-c filename</td>
+<td width="300">Special character file</td>
+</tr>
+<tr>
+<td width="100">-d directoryname</td>
+<td width="300">Check for directory existence</td>
+</tr>
+<tr>
+<td width="100">-e filename</td>
+<td width="300">Check for file existence</td>
+</tr>
+<tr>
+<td width="100">-f filename</td>
+<td width="300">Check for regular file existence not a directory</td>
+</tr>
+<tr>
+<td width="100">-G filename</td>
+<td width="300">Check if file exists and is owned by effective group ID.</td>
+</tr>
+<tr>
+<td width="100">-g filename</td>
+<td width="300">true if file exists and is set-group-id.</td>
+</tr>
+<tr>
+<td width="100">-k filename</td>
+<td width="300">Sticky bit</td>
+</tr>
+<tr>
+<td width="100">-L filename</td>
+<td width="300">Symbolic link</td>
+</tr>
+<tr>
+<td width="100">-O filename</td>
+<td width="300">True if file exists and is owned by the effective user id.</td>
+</tr>
+<tr>
+<td width="100">-r filename</td>
+<td width="300">Check if file is a readable</td>
+</tr>
+<tr>
+<td width="100">-S filename</td>
+<td width="300">Check if file is socket</td>
+</tr>
+<tr>
+<td width="100">-s filename</td>
+<td width="300">Check if file is nonzero size</td>
+</tr>
+<tr>
+<td width="100">-u filename</td>
+<td width="300">Check if file set-ser-id bit is set</td>
+</tr>
+<tr>
+<td width="100">-w filename</td>
+<td width="300">Check if file is writable</td>
+</tr>
+<tr>
+<td width="100">-x filename</td>
+<td width="300">Check if file is executable</td>
+</tr>
+</tbody>
+</table>
+<p>The following script will check to see if a file exists or not.</p>
+<pre>#!/bin/bash
+file="./file"
+if [ -e $file ]; then
+	echo "File exists"
+else 
+	echo "File does not exist"
+fi 
+</pre>
+<p>The result:</p>
+<pre>$ ./filetesting.sh
+File does not exist
+$ touch file
+$ ./filetesting.sh
+File exists
+</pre>
+<p>Similarly for example we can use <code>while</code> loop to check if file does not exist. This script will sleep until file does exist. Note bash negator <code>!</code> which negates the <code>-e</code> option.</p>
+<pre>#!/bin/bash
+ 
+while [ ! -e myfile ]; do
+# Sleep until file does exists/is created
+sleep 1
+done
+</pre>
+<h2>Loops</h2>
+<p>There are multiple types of loops that can be used in Bash, including <code>for</code>, <code>while</code>, and <code>until</code>. See some of the examples below to learn how to use.</p>
+<h3>Bash for loop</h3>
+<p>This script will list every file or directory it finds inside the <code>/var/</code> directory.</p>
+<pre>#!/bin/bash
+
+# bash for loop
+for f in $( ls /var/ ); do
+	echo $f
+done 
+</pre>
+<p>A <code>for</code> loop can also be run directly from the command line, no need for a script:</p>
+<pre>$ for f in $( ls /var/ ); do echo $f; done 
+</pre>
+<p>The result:</p>
+<pre>$ ./for_loop.sh
+backups
+cache
+crash
+lib
+local
+lock
+log
+mail
+metrics
+opt
+run
+snap
+spool
+tmp
+</pre>
+<hr><div class="incontent_ads" data-fuse="22189504509"></div><hr>
+<h3>Bash while loop</h3>
+<p>This <code>while</code> loop will continue to loop until our variable reaches a value of 0 or less.</p>
+<pre>#!/bin/bash
+COUNT=6
+# bash while loop
+while [ $COUNT -gt 0 ]; do
+	echo Value of count is: $COUNT
+	let COUNT=COUNT-1
+done
+</pre>
+<p>The result:</p>
+<pre>$ ./while_loop.sh
+Value of count is: 6
+Value of count is: 5
+Value of count is: 4
+Value of count is: 3
+Value of count is: 2
+Value of count is: 1
+</pre>
+<h3>Bash until loop</h3>
+<p>An <code>until</code> loop works similarly to <code>while</code>.</p>
+<pre>#!/bin/bash
+COUNT=0
+# bash until loop
+until [ $COUNT -gt 5 ]; do
+        echo Value of count is: $COUNT
+        let COUNT=COUNT+1
+done
+</pre>
+<p>The result:</p>
+<pre>$ ./until_loop.sh
+Value of count is: 0
+Value of count is: 1
+Value of count is: 2
+Value of count is: 3
+Value of count is: 4
+Value of count is: 5
+</pre>
+<h3>Control bash loop with input</h3>
+<p>Here is a example of <code>while</code> loop controlled by standard input. Until the redirection chain from STDOUT to STDIN to the <code>read</code> command exists the <code>while</code> loop continues.</p>
+<pre>#!/bin/bash
+# This bash script will locate and replace spaces
+# in the filenames
+DIR="."
+# Controlling a loop with bash read command by redirecting STDOUT as
+# a STDIN to while loop
+# find will not truncate filenames containing spaces
+find $DIR -type f | while read file; do
+# using POSIX class [:space:] to find space in the filename
+if [[ "$file" = *[[:space:]]* ]]; then
+# substitute space with "_" character and consequently rename the file
+mv "$file" `echo $file | tr ' ' '_'`
+fi;
+# end of while loop
+done
+</pre>
+<h2>Bash Functions</h2>
+<p>This example shows how to declare a function and call back to it later in the script.</p>
+<pre>!/bin/bash
+# BASH FUNCTIONS CAN BE DECLARED IN ANY ORDER
+function function_B {
+        echo Function B.
+}
+function function_A {
+        echo $1
+}
+function function_D {
+        echo Function D.
+}
+function function_C {
+        echo $1
+}
+# FUNCTION CALLS
+# Pass parameter to function A
+function_A "Function A."
+function_B
+# Pass parameter to function C
+function_C "Function C."
+function_D
+</pre>
+<p>The result:<br>
+</p><hr><div class="incontent_ads" data-fuse="22189504506"></div><hr><p></p>
+<pre>$ ./functions.sh
+Function A.
+Function B.
+Function C.
+Function D.
+</pre>
+<h2>Bash Select</h2>
+<p>The <code>select</code> command allows us to prompt the user to make a selection.</p>
+<pre>#!/bin/bash
+ 
+PS3='Choose one word: ' 
+
+# bash select
+select word in "linux" "bash" "scripting" "tutorial" 
+do
+  echo "The word you have selected is: $word"
+# Break, otherwise endless loop
+  break  
+done
+
+exit 0 
+</pre>
+<p>The result:</p>
+<pre>$ ./select.sh
+1) linux
+2) bash
+3) scripting
+4) tutorial
+Choose one word: 2
+The word you have selected is: bash
+</pre>
+<h2>Case statement conditional</h2>
+<p>The <code>case</code> statement makes it easy to have many different possibilities, whereas an <code>if</code> statement can get lengthy very quickly if you have more than a few possibilities to account for.</p>
+<pre>#!/bin/bash
+echo "What is your preferred programming / scripting language"
+echo "1) bash"
+echo "2) perl"
+echo "3) phyton"
+echo "4) c++"
+echo "5) I do not know !"
+read case;
+#simple case bash structure
+# note in this case $case is variable and does not have to
+# be named case this is just an example
+case $case in
+    1) echo "You selected bash";;
+    2) echo "You selected perl";;
+    3) echo "You selected phyton";;
+    4) echo "You selected c++";;
+    5) exit
+esac
+</pre>
+<p>The result:</p>
+<pre>$ ./case.sh 
+What is your preferred programming / scripting language
+1) bash
+2) perl
+3) phyton
+4) c++
+5) I do not know !
+3
+You selected phyton
+</pre>
+<h2>Bash quotes and quotations</h2>
+<p>Quotations and quotes are important part of bash and bash scripting. Here are some bash quotes and quotations basics.</p>
+<h3>Escaping Meta characters</h3>
+<p>Before we start with quotes and quotations we should know something about escaping meta characters. Escaping will suppress a special meaning of meta characters and therefore meta characters will be read by bash literally. To do this we need to use backslash <code>\</code> character. Example:</p>
+<pre>#!/bin/bash
+ 
+#Declare bash string variable
+BASH_VAR="Bash Script"
+
+# echo variable BASH_VAR
+echo $BASH_VAR
+
+#when meta character such us "$" is escaped with "\" it will be read literally
+echo \$BASH_VAR 
+
+# backslash has also special meaning and it can be suppressed with yet another "\"
+echo "\\" 
+</pre>
+<p>Here’s what it looks like when we execute the script:<br>
+</p><hr><div class="incontent_ads" data-fuse="22189504224"></div><hr><p></p>
+<pre>$ ./escape_meta.sh
+Bash Script
+$BASH_VAR
+\
+</pre>
+<h3>Single quotes</h3>
+<p>Single quotes in bash will suppress special meaning of every meta characters. Therefore meta characters will be read literally. It is not possible to use another single quote within two single quotes not even if the single quote is escaped by backslash.</p>
+<pre>#!/bin/bash
+ 
+# Declare bash string variable
+BASH_VAR="Bash Script"
+ 
+# echo variable BASH_VAR
+echo $BASH_VAR
+ 
+# meta characters special meaning in bash is suppressed when  using single quotes 
+echo '$BASH_VAR  "$BASH_VAR"'
+</pre>
+<p>The result:</p>
+<pre>$ ./single_quotes.sh
+Bash Script
+$BASH_VAR "$BASH_VAR"
+</pre>
+<h3>Double quotes</h3>
+<p>Double quotes in bash will suppress special meaning of every meta characters except <code>$</code>, <code>\</code> and <code>`</code>. Any other meta characters will be read literally. It is also possible to use single quote within double quotes. If we need to use double quotes within double quotes bash can read them literally when escaping them with <code>\</code>. Example:</p>
+<pre>#!/bin/bash
+ 
+#Declare bash string variable
+BASH_VAR="Bash Script"
+
+# echo variable BASH_VAR
+echo $BASH_VAR
+
+# meta characters and its special meaning in bash is 
+# suppressed when using double quotes except "$", "\" and "`"
+
+echo "It's $BASH_VAR  and \"$BASH_VAR\" using backticks: `date`" 
+</pre>
+<p>The result:</p>
+<pre>$ ./double_quotes.sh
+Bash Script
+It's Bash Script and "Bash Script" using backticks: Thu 10 Feb 2022 10:24:15 PM EST
+</pre>
+<h3>Bash quoting with ANSI-C style</h3>
+<p>There is also another type of quoting and that is ANSI-C. In this type of quoting characters escaped with <code>\</code> will gain special meaning according to the ANSI-C standard.</p>
+<table border="1">
+<tbody>
+<tr>
+<td width="50">\a</td>
+<td width="250">alert (bell)</td>
+<td width="50">\b</td>
+<td width="250">backspace</td>
+</tr>
+<tr>
+<td width="50">\e</td>
+<td width="250">an escape character</td>
+<td width="50">\f</td>
+<td width="250">form feed</td>
+</tr>
+<tr>
+<td width="50">\n</td>
+<td width="250">newline</td>
+<td width="50">\r</td>
+<td width="250">carriage return</td>
+</tr>
+<tr>
+<td width="50">\t</td>
+<td width="250">horizontal tab</td>
+<td width="50">\v</td>
+<td width="250">vertical tab</td>
+</tr>
+<tr>
+<td width="50">\\</td>
+<td width="250">backslash</td>
+<td width="50">\`</td>
+<td width="250">single quote</td>
+</tr>
+<tr>
+<td width="50">\nnn</td>
+<td width="250">octal value of characters ( see [http://www.asciitable.com/ ASCII table] )</td>
+<td width="50">\xnn</td>
+<td width="250">hexadecimal value of characters ( see [http://www.asciitable.com/ ASCII table] )</td>
+</tr>
+</tbody>
+</table>
+<p>The syntax for ansi-c bash quoting is: <code>$' '</code> . Here is an example:</p>
+<pre>#!/bin/bash
+ 
+# as a example we have used \n as a new line, \x40 is hex value for @
+# and \56 is octal value for .
+echo $'web: www.linuxconfig.org\nemail: web\x40linuxconfig\56org' 
+</pre>
+<p>The result:</p>
+<pre>$ ./bash_ansi-c.sh
+web: www.linuxconfig.org
+email: web@linuxconfig.org
+</pre>
+<hr><div class="incontent_ads" data-fuse="22189504509"></div><hr>
+<h2>Arithmetic Operations</h2>
+<p>Bash can be used to perform calculations. Let’s look at a few examples to see how it’s done.</p>
+<h3>Bash Addition Calculator Example</h3>
+<pre>#!/bin/bash
+ 
+let RESULT1=$1+$2
+echo $1+$2=$RESULT1 ' -&gt; # let RESULT1=$1+$2'
+declare -i RESULT2
+RESULT2=$1+$2
+echo $1+$2=$RESULT2 ' -&gt; # declare -i RESULT2; RESULT2=$1+$2'
+echo $1+$2=$(($1 + $2)) ' -&gt; # $(($1 + $2))' 
+</pre>
+<p>The result:</p>
+<pre>$ ./bash_addition_calc.sh 88 12
+88+12=100  -&gt; # let RESULT1=$1+$2
+88+12=100  -&gt; # declare -i RESULT2; RESULT2=$1+$2
+88+12=100  -&gt; # $(($1 + $2))
+</pre>
+<h3>Bash Arithmetics</h3>
+<p>Let’s see how to do some basic Bash aritmetics such as addition, subtraction, multiplication, division, etc.</p>
+<pre>#!/bin/bash
+ 
+echo '### let ###'
+# bash addition
+let ADDITION=3+5
+echo "3 + 5 =" $ADDITION
+
+# bash subtraction
+let SUBTRACTION=7-8
+echo "7 - 8 =" $SUBTRACTION 
+
+# bash multiplication
+let MULTIPLICATION=5*8
+echo "5 * 8 =" $MULTIPLICATION
+
+# bash division
+let DIVISION=4/2
+echo "4 / 2 =" $DIVISION
+
+# bash modulus
+let MODULUS=9%4
+echo "9 % 4 =" $MODULUS
+
+# bash power of two
+let POWEROFTWO=2**2
+echo "2 ^ 2 =" $POWEROFTWO
+
+
+echo '### Bash Arithmetic Expansion ###'
+# There are two formats for arithmetic expansion: $[ expression ] 
+# and $(( expression #)) its your choice which you use
+
+echo 4 + 5 = $((4 + 5))
+echo 7 - 7 = $[ 7 - 7 ]
+echo 4 x 6 = $((3 * 2))
+echo 6 / 3 = $((6 / 3))
+echo 8 % 7 = $((8 % 7))
+echo 2 ^ 8 = $[ 2 ** 8 ]
+
+
+echo '### Declare ###'
+
+echo -e "Please enter two numbers \c"
+# read user input
+read num1 num2
+declare -i result
+result=$num1+$num2
+echo "Result is:$result "
+
+# bash convert binary number 10001
+result=2#10001
+echo $result
+
+# bash convert octal number 16
+result=8#16
+echo $result
+
+# bash convert hex number 0xE6A
+result=16#E6A
+echo $result 
+</pre>
+<p>The result:</p>
+<pre>$ ./arithmetic_operations.sh 
+### let ###
+3 + 5 = 8
+7 - 8 = -1
+5 * 8 = 40
+4 / 2 = 2
+9 % 4 = 1
+2 ^ 2 = 4
+### Bash Arithmetic Expansion ###
+4 + 5 = 9
+7 - 7 = 0
+4 x 6 = 6
+6 / 3 = 2
+8 % 7 = 1
+2 ^ 8 = 256
+### Declare ###
+Please enter two numbers 23 45
+Result is:68 
+17
+14
+3690
+</pre>
+<h3>Round floating point number</h3>
+<p>Here is how to use rounding in Bash calculations.<br>
+</p><hr><div class="incontent_ads" data-fuse="22189504506"></div><hr><p></p>
+<pre>#!/bin/bash
+# get floating point number
+floating_point_number=3.3446
+echo $floating_point_number
+# round floating point number with bash
+for bash_rounded_number in $(printf %.0f $floating_point_number); do
+echo "Rounded number with bash:" $bash_rounded_number
+done 
+</pre>
+<p>The result:</p>
+<pre>$ ./round.sh
+3.3446
+Rounded number with bash: 3
+</pre>
+<h3>Bash floating point calculations</h3>
+<p>Using the <code>bc</code> bash calculator to perform floating point calculations.</p>
+<pre>#!/bin/bash
+# Simple linux bash calculator 
+echo "Enter input:" 
+read userinput
+echo "Result with 2 digits after decimal point:"
+echo "scale=2; ${userinput}" | bc 
+echo "Result with 10 digits after decimal point:"
+echo "scale=10; ${userinput}" | bc 
+echo "Result as rounded integer:"
+echo $userinput | bc 
+</pre>
+<p>The result:</p>
+<pre>$ ./simple_bash_calc.sh
+Enter input:
+10/3.4
+Result with 2 digits after decimal point:
+2.94
+Result with 10 digits after decimal point:
+2.9411764705
+Result as rounded integer:
+2
+</pre>
+<h2>Redirections</h2>
+<p>In the following examples, we will show how to redirect standard error and standard output.</p>
+<h3>STDOUT from bash script to STDERR</h3>
+<pre>#!/bin/bash
+ 
+echo "Redirect this STDOUT to STDERR" 1&gt;&amp;2 
+</pre>
+<p>To prove that STDOUT is redirected to STDERR we can redirect script’s output to file:</p>
+<pre>$ ./redirecting.sh
+Redirect this STDOUT to STDERR
+$ ./redirecting.sh &gt; STDOUT.txt
+$ cat STDOUT.txt
+$ 
+$ ./redirecting.sh 2&gt; STDERR.txt
+$ cat STDERR.txt
+Redirect this STDOUT to STDERR
+</pre>
+<h3>STDERR from bash script to STDOUT</h3>
+<pre>#!/bin/bash
+ 
+cat $1 2&gt;&amp;1
+</pre>
+<p>To prove that STDERR is redirected to STDOUT we can redirect script’s output to file:</p>
+<pre>$ ./redirecting.sh /etc/shadow
+cat: /etc/shadow: Permission denied
+$ ./redirecting.sh /etc/shadow &gt; STDOUT.txt
+$ cat STDOUT.txt
+cat: /etc/shadow: Permission denied
+$ ./redirecting.sh /etc/shadow 2&gt; STDERR.txt
+cat: /etc/shadow: Permission denied
+$ cat STDERR.txt
+$ 
+</pre>
+<h3>stdout to screen</h3>
+<p>The simple way to redirect a standard output (stdout) is to simply use any command, because by default stdout is automatically redirected to screen. First create a file <code>file1</code>:</p>
+<pre>$ touch file1
+$ ls file1 
+file1
+</pre>
+<p>As you can see from the example above execution of <code>ls</code> command produces STDOUT which by default is redirected to screen.</p>
+<h3>stdout to file</h3>
+<p>To override the default behavior of STDOUT we can use <code>&gt;</code> to redirect this output to file:<br>
+</p><hr><div class="incontent_ads" data-fuse="22189504224"></div><hr><p></p>
+<pre>$ ls file1 &gt; STDOUT
+$ cat STDOUT 
+file1
+</pre>
+<h3>stderr to file</h3>
+<p>By default STDERR is displayed on the screen:</p>
+<pre>$ ls
+file1  STDOUT
+$ ls file2
+ls: cannot access file2: No such file or directory
+</pre>
+<p>In the following example we will redirect the standard error (stderr) to a file and stdout to a screen as default. Please note that STDOUT is displayed on the screen, however STDERR is redirected to a file called STDERR:</p>
+<pre>$ ls
+file1  STDOUT
+$ ls file1 file2 2&gt; STDERR
+file1
+$ cat STDERR 
+ls: cannot access file2: No such file or directory
+</pre>
+<h3>stdout to stderr</h3>
+<p>It is also possible to redirect STDOUT and STDERR to the same file. In the next example we will redirect STDOUT to the same descriptor as STDERR. Both STDOUT and STDERR will be redirected to file “STDERR_STDOUT”.</p>
+<pre>$ ls
+file1  STDERR  STDOUT
+$ ls file1 file2 2&gt; STDERR_STDOUT 1&gt;&amp;2
+$ cat STDERR_STDOUT
+ls: cannot access file2: No such file or directory
+file1
+</pre>
+<p>File STDERR_STDOUT now contains STDOUT and STDERR.</p>
+<h3>stderr to stdout</h3>
+<p>The above example can be reversed by redirecting STDERR to the same descriptor as SDTOUT:</p>
+<pre>$ ls
+file1  STDERR  STDOUT
+$ ls file1 file2 &gt; STDERR_STDOUT 2&gt;&amp;1
+$ cat STDERR_STDOUT 
+ls: cannot access file2: No such file or directory
+file1
+</pre>
+<h3>stderr and stdout to file</h3>
+<p>Previous two examples redirected both STDOUT and STDERR to a file. Another way to achieve the same effect is illustrated below:</p>
+<pre>$ ls
+file1  STDERR  STDOUT
+$ ls file1 file2 &amp;&gt; STDERR_STDOUT
+$ cat STDERR_STDOUT 
+ls: cannot access file2: No such file or directory
+file1
+</pre>
+<p>or</p>
+<pre>ls file1 file2 &gt;&amp; STDERR_STDOUT
+$ cat STDERR_STDOUT 
+ls: cannot access file2: No such file or directory
+file1
+</pre>
+<h2>Closing Thoughts</h2>
+<p></p><hr><div class="incontent_ads" data-fuse="22189504509"></div><hr><br>
+In this Bash scripting tutorial, we learned how to get started with Bash scripting by learning all the basics of the most common aspects, such as loops, arithmetic, comparisons, etc. This guide has served as an introduction to Bash scripting concepts, and given you some insight into how the Bash shell works. By adapting our examples for your own needs and expanding them as needed, you will be well on your way to mastering Bash scripting.<p></p>
+<div class="crp_related     crp-text-only"><h3>Related Linux Tutorials:</h3><ul><li><a href="https://linuxconfig.org/an-introduction-to-linux-automation-tools-and-techniques" target="_blank" class="crp_link post-17633"><span class="crp_title">An Introduction to Linux Automation, Tools and Techniques</span></a></li><li><a href="https://linuxconfig.org/nested-loops-in-bash-scripts" target="_blank" class="crp_link post-17989"><span class="crp_title">Nested Loops in Bash Scripts</span></a></li><li><a href="https://linuxconfig.org/linux-hard-link-vs-soft-link" target="_blank" class="crp_link post-18898"><span class="crp_title">Linux hard link vs. soft link</span></a></li><li><a href="https://linuxconfig.org/mastering-bash-script-loops" target="_blank" class="crp_link post-17857"><span class="crp_title">Mastering Bash Script Loops</span></a></li><li><a href="https://linuxconfig.org/bash-scripting-cheat-sheet" target="_blank" class="crp_link post-13696"><span class="crp_title">Bash Scripting Cheat Sheet</span></a></li><li><a href="https://linuxconfig.org/bash-scripting-mastering-arithmetic-operations" target="_blank" class="crp_link post-20433"><span class="crp_title">Bash Scripting: Mastering Arithmetic Operations</span></a></li><li><a href="https://linuxconfig.org/how-to-format-disk-in-linux" target="_blank" class="crp_link post-16926"><span class="crp_title">How to format disk in Linux</span></a></li><li><a href="https://linuxconfig.org/how-to-partition-a-drive-on-linux" target="_blank" class="crp_link post-16899"><span class="crp_title">How to partition a drive on Linux</span></a></li><li><a href="https://linuxconfig.org/linux-performance-optimization-tools-and-techniques" target="_blank" class="crp_link post-17765"><span class="crp_title">Linux Performance Optimization: Tools and Techniques</span></a></li><li><a href="https://linuxconfig.org/bash-scripting-vs-python" target="_blank" class="crp_link post-13693"><span class="crp_title">Bash scripting vs Python</span></a></li></ul><div class="crp_clear"></div></div> </div>
+<footer class="entry-meta" aria-label="Entry meta">
+<span class="cat-links"><span class="gp-icon icon-categories"><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M0 112c0-26.51 21.49-48 48-48h110.014a48 48 0 0143.592 27.907l12.349 26.791A16 16 0 00228.486 128H464c26.51 0 48 21.49 48 48v224c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112z"></path></svg></span><span class="screen-reader-text">Categories </span><a href="https://linuxconfig.org/programming-scripting" rel="category tag">Programming &amp; Scripting</a></span> <span class="tags-links"><span class="gp-icon icon-tags"><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M20 39.5c-8.836 0-16 7.163-16 16v176c0 4.243 1.686 8.313 4.687 11.314l224 224c6.248 6.248 16.378 6.248 22.626 0l176-176c6.244-6.244 6.25-16.364.013-22.615l-223.5-224A15.999 15.999 0 00196.5 39.5H20zm56 96c0-13.255 10.745-24 24-24s24 10.745 24 24-10.745 24-24 24-24-10.745-24-24z"></path><path d="M259.515 43.015c4.686-4.687 12.284-4.687 16.97 0l228 228c4.686 4.686 4.686 12.284 0 16.97l-180 180c-4.686 4.687-12.284 4.687-16.97 0-4.686-4.686-4.686-12.284 0-16.97L479.029 279.5 259.515 59.985c-4.686-4.686-4.686-12.284 0-16.97z"></path></svg></span><span class="screen-reader-text">Tags </span><a href="https://linuxconfig.org/tag/bash" rel="tag">bash</a>, <a href="https://linuxconfig.org/tag/beginner" rel="tag">beginner</a>, <a href="https://linuxconfig.org/tag/programming" rel="tag">programming</a>, <a href="https://linuxconfig.org/tag/scripting" rel="tag">scripting</a></span> <nav id="nav-below" class="post-navigation" aria-label="Posts">
+<div class="nav-previous"><span class="gp-icon icon-arrow-left"><svg viewBox="0 0 192 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M178.425 138.212c0 2.265-1.133 4.813-2.832 6.512L64.276 256.001l111.317 111.277c1.7 1.7 2.832 4.247 2.832 6.513 0 2.265-1.133 4.813-2.832 6.512L161.43 394.46c-1.7 1.7-4.249 2.832-6.514 2.832-2.266 0-4.816-1.133-6.515-2.832L16.407 262.514c-1.699-1.7-2.832-4.248-2.832-6.513 0-2.265 1.133-4.813 2.832-6.512l131.994-131.947c1.7-1.699 4.249-2.831 6.515-2.831 2.265 0 4.815 1.132 6.514 2.831l14.163 14.157c1.7 1.7 2.832 3.965 2.832 6.513z" fill-rule="nonzero"></path></svg></span><span class="prev"><a href="https://linuxconfig.org/data-recovery-of-deleted-files-from-the-fat-filesystem" rel="prev">Data recovery of deleted files from the FAT filesystem</a></span></div><div class="nav-next"><span class="gp-icon icon-arrow-right"><svg viewBox="0 0 192 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M178.425 256.001c0 2.266-1.133 4.815-2.832 6.515L43.599 394.509c-1.7 1.7-4.248 2.833-6.514 2.833s-4.816-1.133-6.515-2.833l-14.163-14.162c-1.699-1.7-2.832-3.966-2.832-6.515 0-2.266 1.133-4.815 2.832-6.515l111.317-111.316L16.407 144.685c-1.699-1.7-2.832-4.249-2.832-6.515s1.133-4.815 2.832-6.515l14.163-14.162c1.7-1.7 4.249-2.833 6.515-2.833s4.815 1.133 6.514 2.833l131.994 131.993c1.7 1.7 2.832 4.249 2.832 6.515z" fill-rule="nonzero"></path></svg></span><span class="next"><a href="https://linuxconfig.org/perl-programming-tutorial" rel="next">Perl Programming Tutorial</a></span></div> </nav>
+</footer>
+<hr>
+<center>
+
+<div data-fuse="22198552927" class="incontent_ads"></div>
+</center>
+<hr>
+<center><font size="6"><strong>Comments and Discussions</strong></font><br><img src="./Bash Scripting Tutorial - Linux Tutorials - Learn Linux Configuration_files/linuxconfig-forum-logo-1.webp" alt="Linux Forum" width="250" height="46"></center>
+<div id="discourse-comments"></div>
+<!--<script type="text/javascript">
+  DiscourseEmbed = { discourseUrl: 'https://forum.linuxconfig.org/',
+                     discourseEmbedUrl: document.querySelector("link[rel='canonical']").getAttribute("href") };
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+    d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>-->
+</div>
+</article>
+</main>
+</div>
+<div class="widget-area sidebar is-right-sidebar" id="right-sidebar">
+<div class="inside-right-sidebar">
+<aside id="block-31" class="widget inner-padding widget_block"><div data-fuse="22189504221" class="sticky_ads"></div>
+<hr style="margin: 2px" ;="">
+<div data-fuse="22189277162" class="sticky_ads"></div></aside> </div>
+</div>
+</div>
+</div>
+<div class="site-footer">
+<div id="footer-widgets" class="site footer-widgets">
+<div class="footer-widgets-container grid-container">
+<div class="inside-footer-widgets">
+<div class="footer-widget-1">
+<aside id="block-12" class="widget inner-padding widget_block">
+<h3 class="wp-block-heading" id="h-newsletter">NEWSLETTER</h3>
+</aside><aside id="block-11" class="widget inner-padding widget_block widget_text">
+<p>Subscribe to&nbsp;Linux Career Newsletter&nbsp;to receive latest news, jobs, career advice and featured configuration tutorials.</p>
+</aside><aside id="block-25" class="widget inner-padding widget_block"><div class="gb-button-wrapper gb-button-wrapper-47b15502">
+<a class="gb-button gb-button-9e8d3737 gb-button-text" href="https://bit.ly/2X5D30q" rel="nofollow">SUBSCRIBE</a>
+</div></aside><aside id="block-13" class="widget inner-padding widget_block">
+<h3 class="wp-block-heading" id="h-write-for-us">WRITE FOR US</h3>
+</aside><aside id="block-15" class="widget inner-padding widget_block widget_text">
+<p>LinuxConfig is looking for a technical writer(s) geared towards GNU/Linux and FLOSS technologies. Your articles will feature various GNU/Linux configuration tutorials and FLOSS technologies used in combination with GNU/Linux operating system.</p>
+</aside><aside id="block-16" class="widget inner-padding widget_block widget_text">
+<p>When writing your articles you will be expected to be able to keep up with a technological advancement regarding the above mentioned technical area of expertise. You will work independently and be able to produce at minimum 2 technical articles a month.</p>
+</aside><aside id="block-21" class="widget inner-padding widget_block"><div class="gb-button-wrapper gb-button-wrapper-fea23fb6">
+<a class="gb-button gb-button-ac59105c gb-button-text" href="https://www.linuxcareers.com/jobs/floss-technical-writer-new-york-city-new-york/1-1/" rel="nofollow">APPLY NOW</a>
+</div></aside> </div>
+<div class="footer-widget-2">
+<aside id="tag_cloud-3" class="widget inner-padding widget_tag_cloud"><h2 class="widget-title">TAGS</h2><div class="tagcloud"><a href="https://linuxconfig.org/tag/18-04" class="tag-cloud-link tag-link-75 tag-link-position-1" style="font-size: 14.825pt;" aria-label="18.04 (202 items)">18.04</a>
+<a href="https://linuxconfig.org/tag/administration" class="tag-cloud-link tag-link-14 tag-link-position-2" style="font-size: 22pt;" aria-label="administration (1,341 items)">administration</a>
+<a href="https://linuxconfig.org/tag/apache" class="tag-cloud-link tag-link-27 tag-link-position-3" style="font-size: 9.05pt;" aria-label="apache (44 items)">apache</a>
+<a href="https://linuxconfig.org/tag/applications" class="tag-cloud-link tag-link-43 tag-link-position-4" style="font-size: 14.65pt;" aria-label="applications (196 items)">applications</a>
+<a href="https://linuxconfig.org/tag/backup" class="tag-cloud-link tag-link-31 tag-link-position-5" style="font-size: 8.35pt;" aria-label="backup (36 items)">backup</a>
+<a href="https://linuxconfig.org/tag/bash" class="tag-cloud-link tag-link-21 tag-link-position-6" style="font-size: 15.2625pt;" aria-label="bash (229 items)">bash</a>
+<a href="https://linuxconfig.org/tag/beginner" class="tag-cloud-link tag-link-15 tag-link-position-7" style="font-size: 17.1875pt;" aria-label="beginner (381 items)">beginner</a>
+<a href="https://linuxconfig.org/tag/browser" class="tag-cloud-link tag-link-74 tag-link-position-8" style="font-size: 9.05pt;" aria-label="browser (44 items)">browser</a>
+<a href="https://linuxconfig.org/tag/centos" class="tag-cloud-link tag-link-61 tag-link-position-9" style="font-size: 8.7875pt;" aria-label="centos (41 items)">centos</a>
+<a href="https://linuxconfig.org/tag/centos8" class="tag-cloud-link tag-link-86 tag-link-position-10" style="font-size: 12.2pt;" aria-label="centos8 (102 items)">centos8</a>
+<a href="https://linuxconfig.org/tag/commands" class="tag-cloud-link tag-link-16 tag-link-position-11" style="font-size: 19.1125pt;" aria-label="commands (627 items)">commands</a>
+<a href="https://linuxconfig.org/tag/database" class="tag-cloud-link tag-link-56 tag-link-position-12" style="font-size: 10.8pt;" aria-label="database (69 items)">database</a>
+<a href="https://linuxconfig.org/tag/debian" class="tag-cloud-link tag-link-20 tag-link-position-13" style="font-size: 10.8pt;" aria-label="debian (69 items)">debian</a>
+<a href="https://linuxconfig.org/tag/desktop" class="tag-cloud-link tag-link-24 tag-link-position-14" style="font-size: 17.7125pt;" aria-label="desktop (437 items)">desktop</a>
+<a href="https://linuxconfig.org/tag/development" class="tag-cloud-link tag-link-42 tag-link-position-15" style="font-size: 17.275pt;" aria-label="development (385 items)">development</a>
+<a href="https://linuxconfig.org/tag/docker" class="tag-cloud-link tag-link-68 tag-link-position-16" style="font-size: 8.875pt;" aria-label="docker (42 items)">docker</a>
+<a href="https://linuxconfig.org/tag/error" class="tag-cloud-link tag-link-51 tag-link-position-17" style="font-size: 8pt;" aria-label="error (33 items)">error</a>
+<a href="https://linuxconfig.org/tag/fedora" class="tag-cloud-link tag-link-30 tag-link-position-18" style="font-size: 8.875pt;" aria-label="fedora (42 items)">fedora</a>
+<a href="https://linuxconfig.org/tag/filesystem" class="tag-cloud-link tag-link-17 tag-link-position-19" style="font-size: 14.9125pt;" aria-label="filesystem (207 items)">filesystem</a>
+<a href="https://linuxconfig.org/tag/firewall" class="tag-cloud-link tag-link-46 tag-link-position-20" style="font-size: 8.9625pt;" aria-label="firewall (43 items)">firewall</a>
+<a href="https://linuxconfig.org/tag/gaming" class="tag-cloud-link tag-link-60 tag-link-position-21" style="font-size: 11.15pt;" aria-label="gaming (77 items)">gaming</a>
+<a href="https://linuxconfig.org/tag/gnome" class="tag-cloud-link tag-link-63 tag-link-position-22" style="font-size: 10.45pt;" aria-label="gnome (63 items)">gnome</a>
+<a href="https://linuxconfig.org/tag/hardware" class="tag-cloud-link tag-link-47 tag-link-position-23" style="font-size: 11.2375pt;" aria-label="Hardware (78 items)">Hardware</a>
+<a href="https://linuxconfig.org/tag/installation" class="tag-cloud-link tag-link-40 tag-link-position-24" style="font-size: 17.0125pt;" aria-label="installation (362 items)">installation</a>
+<a href="https://linuxconfig.org/tag/kali" class="tag-cloud-link tag-link-73 tag-link-position-25" style="font-size: 10.0125pt;" aria-label="kali (57 items)">kali</a>
+<a href="https://linuxconfig.org/tag/multimedia" class="tag-cloud-link tag-link-32 tag-link-position-26" style="font-size: 14.65pt;" aria-label="multimedia (195 items)">multimedia</a>
+<a href="https://linuxconfig.org/tag/networking" class="tag-cloud-link tag-link-36 tag-link-position-27" style="font-size: 14.825pt;" aria-label="networking (203 items)">networking</a>
+<a href="https://linuxconfig.org/tag/nvidia" class="tag-cloud-link tag-link-67 tag-link-position-28" style="font-size: 9.8375pt;" aria-label="nvidia (54 items)">nvidia</a>
+<a href="https://linuxconfig.org/tag/programming" class="tag-cloud-link tag-link-45 tag-link-position-29" style="font-size: 14.9125pt;" aria-label="programming (206 items)">programming</a>
+<a href="https://linuxconfig.org/tag/python" class="tag-cloud-link tag-link-66 tag-link-position-30" style="font-size: 10.3625pt;" aria-label="python (62 items)">python</a>
+<a href="https://linuxconfig.org/tag/raspberrypi" class="tag-cloud-link tag-link-219 tag-link-position-31" style="font-size: 11.0625pt;" aria-label="raspberrypi (74 items)">raspberrypi</a>
+<a href="https://linuxconfig.org/tag/redhat" class="tag-cloud-link tag-link-58 tag-link-position-32" style="font-size: 10.275pt;" aria-label="redhat (61 items)">redhat</a>
+<a href="https://linuxconfig.org/tag/rhel8" class="tag-cloud-link tag-link-85 tag-link-position-33" style="font-size: 12.2875pt;" aria-label="rhel8 (104 items)">rhel8</a>
+<a href="https://linuxconfig.org/tag/scripting" class="tag-cloud-link tag-link-22 tag-link-position-34" style="font-size: 14.3pt;" aria-label="scripting (178 items)">scripting</a>
+<a href="https://linuxconfig.org/tag/security" class="tag-cloud-link tag-link-26 tag-link-position-35" style="font-size: 15.4375pt;" aria-label="security (240 items)">security</a>
+<a href="https://linuxconfig.org/tag/server" class="tag-cloud-link tag-link-39 tag-link-position-36" style="font-size: 16.1375pt;" aria-label="server (289 items)">server</a>
+<a href="https://linuxconfig.org/tag/ssh" class="tag-cloud-link tag-link-35 tag-link-position-37" style="font-size: 9.4875pt;" aria-label="ssh (49 items)">ssh</a>
+<a href="https://linuxconfig.org/tag/storage" class="tag-cloud-link tag-link-19 tag-link-position-38" style="font-size: 11.15pt;" aria-label="storage (76 items)">storage</a>
+<a href="https://linuxconfig.org/tag/terminal" class="tag-cloud-link tag-link-38 tag-link-position-39" style="font-size: 14.475pt;" aria-label="terminal (187 items)">terminal</a>
+<a href="https://linuxconfig.org/tag/ubuntu" class="tag-cloud-link tag-link-23 tag-link-position-40" style="font-size: 19.725pt;" aria-label="ubuntu (743 items)">ubuntu</a>
+<a href="https://linuxconfig.org/tag/ubuntu-20-04" class="tag-cloud-link tag-link-90 tag-link-position-41" style="font-size: 15.6125pt;" aria-label="ubuntu 20.04 (248 items)">ubuntu 20.04</a>
+<a href="https://linuxconfig.org/tag/video" class="tag-cloud-link tag-link-92 tag-link-position-42" style="font-size: 8.0875pt;" aria-label="video (34 items)">video</a>
+<a href="https://linuxconfig.org/tag/virtualization" class="tag-cloud-link tag-link-54 tag-link-position-43" style="font-size: 9.575pt;" aria-label="virtualization (50 items)">virtualization</a>
+<a href="https://linuxconfig.org/tag/webapp" class="tag-cloud-link tag-link-50 tag-link-position-44" style="font-size: 9.4pt;" aria-label="webapp (48 items)">webapp</a>
+<a href="https://linuxconfig.org/tag/webserver" class="tag-cloud-link tag-link-25 tag-link-position-45" style="font-size: 12.6375pt;" aria-label="webserver (115 items)">webserver</a></div>
+</aside><aside id="block-50" class="widget inner-padding widget_block"><div class="gb-button-wrapper gb-button-wrapper-aa8d8e65">
+<a class="gb-button gb-button-6841cab3 gb-button-text" href="https://linuxconfig.org/about-us">ABOUT US</a>
+</div></aside> </div>
+<div class="footer-widget-3">
+<aside id="block-36" class="widget inner-padding widget_block">
+<h3 class="wp-block-heading" id="h-featured-tutorials">FEATURED TUTORIALS</h3>
+</aside><aside id="block-37" class="widget inner-padding widget_block"><ul>
+<li>
+<a href="https://linuxconfig.org/vim-tutorial" target="_blank">VIM tutorial for beginners</a>
+</li>
+<li>
+<a href="https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-20-04-focal-fossa-linux" target="_blank">How to install the NVIDIA drivers on Ubuntu 20.04 Focal Fossa Linux</a>
+</li>
+<li>
+<a href="https://linuxconfig.org/bash-scripting-tutorial-for-beginners" target="_blank">Bash Scripting Tutorial for Beginners</a>
+</li>
+<li>
+<a href="https://linuxconfig.org/how-to-check-centos-version" target="_blank">How to check CentOS version</a>
+</li>
+<li>
+<a href="https://linuxconfig.org/how-to-find-my-ip-address-on-ubuntu-20-04-focal-fossa-linux" target="_blank">How to find my IP address on Ubuntu 20.04 Focal Fossa Linux</a>
+</li>
+<li>
+<a href="https://linuxconfig.org/ubuntu-20-04-remote-desktop-access-from-windows-10" target="_blank">Ubuntu 20.04 Remote Desktop Access from Windows 10</a>
+</li>
+<li>
+<a href="https://linuxconfig.org/howto-mount-usb-drive-in-linux" target="_blank">Howto mount USB drive in Linux</a>
+</li>
+<li>
+<a href="https://linuxconfig.org/how-to-install-missing-ifconfig-command-on-debian-linux" target="_blank">How to install missing ifconfig command on Debian Linux</a>
+</li>
+<li>
+<a href="https://linuxconfig.org/amd-radeon-ubuntu-20-04-driver-installation" target="_blank">AMD Radeon Ubuntu 20.04 Driver Installation</a>
+</li>
+<li>
+<a href="https://linuxconfig.org/how-to-configure-static-ip-address-on-ubuntu-18-10-cosmic-cuttlefish-linux" target="_blank">Ubuntu Static IP configuration</a>
+</li>
+<li>
+<a href="https://linuxconfig.org/how-to-use-arrays-in-bash-script" target="_blank">How to use bash array in a shell script</a>
+</li>
+<li>
+<a href="https://linuxconfig.org/how-to-turn-on-off-ip-forwarding-in-linux" target="_blank">Linux IP forwarding – How to Disable/Enable</a>
+</li>
+<li>
+<a href="https://linuxconfig.org/how-to-install-tweak-tool-on-ubuntu-20-04-lts-focal-fossa-linux" target="_blank">How to install Tweak Tool on Ubuntu 20.04 LTS Focal Fossa Linux</a>
+</li>
+<li>
+<a href="https://linuxconfig.org/how-to-enable-disable-firewall-on-ubuntu-18-04-bionic-beaver-linux" target="_blank">How to enable/disable firewall on Ubuntu 18.04 Bionic Beaver Linux</a>
+</li>
+<li>
+<a href="https://linuxconfig.org/how-to-configure-static-ip-address-on-ubuntu-18-04-bionic-beaver-linux" target="_blank">Netplan static IP on Ubuntu configuration</a>
+</li>
+<li>
+<a href="https://linuxconfig.org/how-to-change-from-default-to-alternative-python-version-on-debian-linux" target="_blank">How to change from default to alternative Python version on Debian Linux</a>
+</li>
+<li>
+<a href="https://linuxconfig.org/how-to-enable-root-login-on-kali-linux" target="_blank">Set Kali root password and enable root login</a>
+</li>
+<li>
+<a href="https://linuxconfig.org/how-to-install-adobe-acrobat-reader-on-ubuntu-20-04-focal-fossa-linux" target="_blank">How to Install Adobe Acrobat Reader on Ubuntu 20.04 Focal Fossa Linux</a>
+</li>
+<li>
+<a href="https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux" target="_blank">How to install the NVIDIA drivers on Ubuntu 18.04 Bionic Beaver Linux</a>
+</li>
+<li>
+<a href="https://linuxconfig.org/how-to-check-nvidia-driver-version-on-your-linux-system" target="_blank">How to check NVIDIA driver version on your Linux system</a>
+</li>
+<li>
+<a href="https://linuxconfig.org/nvidia-rtx-3080-eth-hashrate-and-overclock-settings-on-hiveos" target="_blank">Nvidia RTX 3080 Ethereum Hashrate and Mining Overclock settings on HiveOS Linux</a>
+</li>
+</ul></aside> </div>
+<div class="footer-widget-4">
+<aside id="block-40" class="widget inner-padding widget_block">
+<h3 class="gb-headline gb-headline-3c90cba8 gb-headline-text">LATEST TUTORIALS</h3>
+</aside><aside id="block-38" class="widget inner-padding widget_block widget_recent_entries"><ul class="wp-block-latest-posts__list wp-block-latest-posts"><li><a class="wp-block-latest-posts__post-title" href="https://linuxconfig.org/ubuntu-restricted-extras-what-they-are-and-how-to-install-them">Ubuntu Restricted Extras: What They Are and How to Install Them</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://linuxconfig.org/how-to-resolve-the-requested-nginx-plugin-does-not-appear-to-be-installed">How to fix: The requested nginx plugin does not appear to be installed</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://linuxconfig.org/setting-up-a-linux-intrusion-detection-system-with-aide">Setting Up a Linux Intrusion Detection System with AIDE</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://linuxconfig.org/how-to-use-raspberry-pi-to-monitor-network-traffic">How to use Raspberry Pi to monitor network traffic</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://linuxconfig.org/set-up-raspberry-pi-as-router">Set up Raspberry Pi as Router</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://linuxconfig.org/raspberry-pi-4-enable-uart">Raspberry Pi 4 enable UART</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://linuxconfig.org/how-to-get-free-ssl-tls-certificates-with-lets-encrypt-and-certbot">How to get free SSL/TLS certificates with Let’s Encrypt and Certbot</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://linuxconfig.org/converting-images-to-avif-on-linux-including-jpg-png-and-webp-formats">Converting Images to AVIF on Linux, Including JPG, PNG, and WebP Formats</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://linuxconfig.org/how-to-install-and-switch-java-versions-on-ubuntu-linux">How to Install and Switch Java Versions on Ubuntu Linux</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://linuxconfig.org/building-a-hello-world-appimage-on-linux">Building a “Hello World” AppImage on Linux</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://linuxconfig.org/uninstalling-snapd-on-ubuntu">Uninstalling Snapd on Ubuntu</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://linuxconfig.org/configuring-apt-sources-list-a-quick-reference-guide-for-debian-systems">Configuring APT sources.list: A Quick Reference Guide for Debian Systems</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://linuxconfig.org/how-to-set-nvidia-power-limit-on-ubuntu">How to Set NVIDIA Power Limit on Ubuntu</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://linuxconfig.org/how-to-integrate-any-linux-distribution-inside-a-terminal-with-distrobox">How to integrate any Linux distribution inside a terminal with Distrobox</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://linuxconfig.org/monitoring-nvidia-gpu-usage-on-ubuntu">Monitoring NVIDIA GPU Usage on Ubuntu</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://linuxconfig.org/how-to-run-a-bitcoin-full-node-on-debian-linux">How to Run a Bitcoin Full Node on Debian Linux</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://linuxconfig.org/how-to-stream-video-on-raspberry-pi">How to stream video on Raspberry Pi</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://linuxconfig.org/raspberry-pi-black-screen-after-boot">Raspberry Pi black screen after boot</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://linuxconfig.org/how-to-utilize-ubuntu-logs-for-troubleshooting">How to Utilize Ubuntu Logs for Troubleshooting</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://linuxconfig.org/how-to-install-nvidia-drivers-on-ubuntu-24-04">How to Install NVIDIA Drivers on Ubuntu 24.04</a></li>
+</ul></aside> </div>
+</div>
+</div>
+</div>
+<footer class="site-info" aria-label="Site" itemtype="https://schema.org/WPFooter" itemscope="">
+<div class="inside-site-info grid-container">
+<div class="copyright-bar">
+© 2024 TOSID Group Pty Ltd - LinuxConfig.org </div>
+</div>
+</footer>
+</div>
+<a title="Scroll back to top" aria-label="Scroll back to top" rel="nofollow" href="https://linuxconfig.org/#" class="generate-back-to-top" data-scroll-speed="400" data-start-scroll="300">
+<span class="gp-icon icon-arrow-up"><svg viewBox="0 0 330 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M305.863 314.916c0 2.266-1.133 4.815-2.832 6.514l-14.157 14.163c-1.699 1.7-3.964 2.832-6.513 2.832-2.265 0-4.813-1.133-6.512-2.832L164.572 224.276 53.295 335.593c-1.699 1.7-4.247 2.832-6.512 2.832-2.265 0-4.814-1.133-6.513-2.832L26.113 321.43c-1.699-1.7-2.831-4.248-2.831-6.514s1.132-4.816 2.831-6.515L158.06 176.408c1.699-1.7 4.247-2.833 6.512-2.833 2.265 0 4.814 1.133 6.513 2.833L303.03 308.4c1.7 1.7 2.832 4.249 2.832 6.515z" fill-rule="nonzero"></path></svg></span>
+</a> <nav id="generate-slideout-menu" class="main-navigation slideout-navigation do-overlay" itemtype="https://schema.org/SiteNavigationElement" itemscope="" style="display: none;" aria-hidden="true">
+<div class="inside-navigation grid-container grid-parent">
+<button class="slideout-exit has-svg-icon"><span class="gp-icon pro-close">
+<svg viewBox="0 0 512 512" aria-hidden="true" role="img" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1em" height="1em">
+<path d="M71.029 71.029c9.373-9.372 24.569-9.372 33.942 0L256 222.059l151.029-151.03c9.373-9.372 24.569-9.372 33.942 0 9.372 9.373 9.372 24.569 0 33.942L289.941 256l151.03 151.029c9.372 9.373 9.372 24.569 0 33.942-9.373 9.372-24.569 9.372-33.942 0L256 289.941l-151.029 151.03c-9.373 9.372-24.569 9.372-33.942 0-9.372-9.373-9.372-24.569 0-33.942L222.059 256 71.029 104.971c-9.372-9.373-9.372-24.569 0-33.942z"></path>
+</svg>
+</span> <span class="screen-reader-text">Close</span></button><div class="main-nav"><ul id="menu-top-main-menu-1" class=" slideout-menu"><li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-9640"><a href="https://linuxconfig.org/linux-tutorials">Linux Tutorials</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8425"><a href="https://linuxconfig.org/system-administration-configuration">System Admin</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-8426"><a href="https://linuxconfig.org/programming-scripting">Programming</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8427"><a href="https://linuxconfig.org/multimedia-games">Multimedia</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8525"><a rel="nofollow noopener noreferrer" href="https://forum.linuxconfig.org/">Forum</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9641"><a href="https://linuxconfig.org/linux-commands">Linux Commands</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8526"><a rel="nofollow noopener noreferrer" href="https://linuxconfig.org/linuxcareers-com-linux-job-portal">Linux Jobs</a></li>
+</ul></div> </div>
+</nav>
+<!--<script id="generate-a11y" type="text/javascript">!function(){"use strict";if("querySelector"in document&&"addEventListener"in window){var e=document.body;e.addEventListener("mousedown",function(){e.classList.add("using-mouse")}),e.addEventListener("keydown",function(){e.classList.remove("using-mouse")})}}();</script>--><!--<script id="generate-offside-js-extra" type="text/javascript">
+var offSide = {"side":"left"};
+</script>-->
+<!--<script src="https://linuxconfig.org/wp-content/plugins/gp-premium/menu-plus/functions/js/offside.min.js?ver=2.2.2" id="generate-offside-js" type="text/javascript"></script>-->
+<!--[if lte IE 11]>
+<script src="https://linuxconfig.org/wp-content/themes/generatepress/assets/js/classList.min.js?ver=3.4.0" id="generate-classlist-js"></script>
+<![endif]-->
+<!--<script id="generate-menu-js-extra" type="text/javascript">
+var generatepressMenu = {"toggleOpenedSubMenus":"1","openSubMenuLabel":"Open Sub-Menu","closeSubMenuLabel":"Close Sub-Menu"};
+</script>-->
+<!--<script src="https://linuxconfig.org/wp-content/themes/generatepress/assets/js/menu.min.js?ver=3.4.0" id="generate-menu-js" type="text/javascript"></script>-->
+<!--<script id="generate-navigation-search-js-extra" type="text/javascript">
+var generatepressNavSearch = {"open":"Open Search Bar","close":"Close Search Bar"};
+</script>-->
+<!--<script src="https://linuxconfig.org/wp-content/themes/generatepress/assets/js/navigation-search.min.js?ver=3.4.0" id="generate-navigation-search-js" type="text/javascript"></script>-->
+<!--<script id="generate-back-to-top-js-extra" type="text/javascript">
+var generatepressBackToTop = {"smooth":"1"};
+</script>-->
+<!--<script src="https://linuxconfig.org/wp-content/themes/generatepress/assets/js/back-to-top.min.js?ver=3.4.0" id="generate-back-to-top-js" type="text/javascript"></script>-->
+<!--<script src="https://linuxconfig.org/wp-content/plugins/page-links-to/dist/new-tab.js?ver=3.3.7" id="page-links-to-js" type="text/javascript"></script>-->
+<script defer="" src="./Bash Scripting Tutorial - Linux Tutorials - Learn Linux Configuration_files/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon="{&quot;rayId&quot;:&quot;87350fb25c1647dd&quot;,&quot;version&quot;:&quot;2024.3.0&quot;,&quot;token&quot;:&quot;1637300d8a394c64a4b8ffff41ff1ca8&quot;}" crossorigin="anonymous"></script>
+
+
+</body></html>
