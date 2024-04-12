@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+Element defined by a start tag, some content,
+and an end tag
+
+<html> The <html> element is the root element and it
+defines the whole HTML document(You should always include the lang attribute inside the <html> tag, to declare the language of the Web page. This is meant to assist search engines and browsers.)
+
+<head> The <head> element contains meta information about the HTML page
+         <title> The <title> element specifies a title for the HTML page (which is shown in the browser's title bar or in the page's tab)
+         <base>	Defines a default address or a default target for all links on a page
+         <link>	Defines the relationship between a document and an external resource
+         <meta>	Defines metadata about an HTML document(<meta name="viewport" content="width=device-width, initial-scale=1.0">)(refer https://www.w3schools.com/html/html_head.asp)
+        <script>	Defines a client-side script
+         <style>	Defines style information for a document
+         <body> the visible part of the html document is between <body> and </body>
+
+<h1> to <h6> :  headings are defined with this tags (BOLD letters )
+<h1> defines the most important heading. <h6> defines the least important heading
+
+<p> : HTML paragraphs are defined with the <p> tag
+
+<a> : HTML links are defined with the <a> tag 
+      href attribute has the link's destination ( attributes are with in the start tag like <a href="https://www.w3schools.com"> )
+
+             
+ELEMENTS : Some HTML elements have no content (like the <br> element). These elements are called empty elements. Empty elements do not have an end tag!
+           <br> - for line escape no content
+           
+
+ATTRIBUTES : Attributes provide additional information about elements
+             Attributes are always specified in the start tag
+             Attributes usually come in name/value pairs like: name="value"
+             All HTML elements have attributes
+             1. Absolute URL - Links to an external image that is hosted on another website. Example: src="https://www.w3schools.com/images/img_girl.jpg".
+
+Notes: External images might be under copyright. If you do not get permission to use it, you may be in violation of copyright laws. In addition, you cannot control external images; it can suddenly be removed or changed.
+
+2. Relative URL - Links to an image that is hosted within the website. Here, the URL does not include the domain name. If the URL begins without a slash, it will be relative to the current page. Example: src="img_girl.jpg". If the URL begins with a slash, it will be relative to the domain. Example: src="/images/img_girl.jpg".
+
+Tip: It is almost always best to use relative URLs. They will not break if you change domain.
+
+          In some situations, when the attribute value itself contains double quotes, it is necessary to use single quotes:
+
+<!--...-->	Defines a comment
+
+<abbr>	Defines an abbreviation or an acronym
+
+<address>	Defines contact information for the author/owner of a document
+      
+<img>	Defines an image -atributes src(source) width height alt(altername text) title   
+
+<hr> horizontal rule empty tag
+
+<pre>	Defines pre-formatted text
+
+<b> - Bold text
+<strong> - Important text(written in bold)
+<i> - Italic text
+<em> - Emphasized text(written in italic)
+<mark> - Marked text
+<small> - Smaller text
+<del> - Deleted text
+<ins> - Inserted text
+<sub> - Subscript text
+<sup> - Superscript text
+
+<blockquote>	Defines a section that is quoted from another source
+<cite>	Defines the title of a work
+<q>	Defines a short inline quotation
+
+<bdo>	Defines the text direction atribute dir(values are rtl ltr)
+
+links <a> attributes (href)   The target attribute can have one of the following values:
+                                     _self - Default. Opens the document in the same window/tab as it was clicked
+                                     _blank - Opens the document in a new window or tab
+                                     _parent - Opens the document in the parent frame
+                                     _top - Opens the document in the full body of the window
+                               Use mailto: inside the href attribute to create a link that opens the user's email program (to let them send a new   email):      
+                     title as a attribute when curser hovers above it        
+                                     
+     <button> as a link attribute (onclick) 
+     
+tables   <table>  <tr>(row) <th>(heading) <td>(data)
+
+lists <ul>(unordered list) <li>(list items)
+      <ol>(ordered list) <li> atrubute - type (type="1"	The list items will be numbered with numbers (default)
+                                               type="A"	The list items will be numbered with uppercase letters
+                                               type="a"	The list items will be numbered with lowercase letters
+                                               type="I"	The list items will be numbered with uppercase roman numbers
+                                               type="i"	The list items will be numbered with lowercase roman numbers)
+            (<ol start="50">)By default, an ordered list will start counting from 1. If you want to start counting from a specified number, you can use the start attribute:
+      <dl>(description list) <dt>(term) <dd>(describes a term)
+      
+<div>( The <div> element is often used as a container for other HTML elements.)
+
+<span> (The <span> element is an inline container used to mark up a part of a text, or a part of a document)
+
+diplay attribute (inline block)
+
+The class attribute is often used to point to a class name in a style sheet. It can also be used by a JavaScript to access and manipulate elements with the specific class name.
+HTML elements can belong to more than one class.A class name cannot start with a number!
+To define multiple classes, separate the class names with a space, e.g. <div class="city main">. The element will be styled according to all the classes specifie
+
+id attribute  The id attribute specifies a unique id for an HTML element. The value of the id attribute must be unique within the HTML document.
+A class name can be used by multiple HTML elements, while an id name must only be used by one HTML element within the page:
+
+<iframe> An HTML iframe is used to display a web page within a web page.
+        An inline frame is used to embed another document within the current HTML document.
+           attributes - src height width title alt name(to nam the iframe)
+           An iframe can be used as the target frame for a link.The target attribute of the link must refer to the name attribute of the iframe:
+
+<script> for writing the script
+
+<form> <input type="text">	Displays a single-line text input field
+       <input type="radio">	Displays a radio button (for selecting one of many choices)
+       <input type="checkbox">	Displays a checkbox (for selecting zero or more of many choices)
+       <input type="submit">	Displays a submit button (for submitting the form)
+       <input type="button">	Displays a clickable button
+       (refer https://www.w3schools.com/html/html_form_input_types.asp for more input types )
+       Notice that each input field must have a name attribute to be submitted.
+       If the name attribute is omitted, the value of the input field will not be sent at all.
+       attributes (https://www.w3schools.com/html/html_form_attributes.asp)
+       
+       <label> - The <label> element defines a label for several form elements.The <label> element also help users who have difficulty clicking on very small regions                 (such as radio     buttons or checkboxes) - because when the user clicks the text within the <label> element, it toggles the radio button/checkbox.
+                The for attribute of the <label> tag should be equal to the id attribute of the <input> element to bind them together.
+
+        <select> drop-down list:( <option value="  ">jhbcv</option> ) attributes - size -to specify the number of visible values:
+                                                                                   Use the multiple attribute to allow the user to select more than one value:
+
+       <textarea> - The <textarea> element defines a multi-line input field (a text area):
+                    attributes - rows cols 
+                    
+       <button> -    element defines a clickable button:  (<button type="button" onclick="alert('Hello World!')">Click Me!</button>
+       The <fieldset> element is used to group related data in a form.
+                     The <legend> element defines a caption for the <fieldset> element.
+                     
+       <datalist> - The <datalist> element specifies a list of pre-defined options for an <input> element.  
+                    Users will see a drop-down list of the pre-defined options as they input data.
+                    The list attribute of the <input> element, must refer to the id attribute of the <datalist> element.
+                    
+                    
+<video> <audio> (<video width="320" height="240" controls>
+                <source src="movie.mp4" type="video/mp4">
+                <source src="movie.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+                </video>  )  
+                The controls attribute adds video controls, like play, pause, and volume.
+                The <source> element allows you to specify alternative video files which the browser may choose from. The browser will use the first recognized format.
+                autoplay muted (attribues)
+                
+
+
+       
+

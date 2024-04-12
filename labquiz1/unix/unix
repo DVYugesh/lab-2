@@ -1,0 +1,160 @@
+--pwd
+ 
+--cd ~ user home directory
+     / 
+     ..
+     .
+
+--ls a-all including hidden
+     l-long format
+     al-all long
+     R-shows all files recursively/not hidden
+     X-sort alphabetically
+     S-sort by file size
+     t-sort by time( newest first )
+     
+--mkdir> mkdir location/dirname
+       p-creates directories recursively
+       --"dir 1"
+         'dir 1'
+         dir\ 1
+
+--echo -- like print
+       \n for new lines                     "hi\nnanna"
+       e-enables interpretation of backslash  
+
+-->
+-->>
+
+--cat --prints contents of files
+      n-number the lines
+
+--mv> mv file|directory location
+      mv f1 f2-- f2 is copied as f1( f1 destroys )
+
+--cp> cp file|directory(empty) location
+      cp f1 f2-- f2 is copied as f1( f1 is not destroyed )
+      n- do not overwrite file if it is already exists
+      i- asks confirmation before overwriting
+      r,R- recursive
+
+--rm --removes files
+     r-recursive
+     d-to remove directory
+     i-asks conformation before removing a file
+--rmdir
+
+--head,tail (10 lines)
+    n-
+    -2
+    -4
+
+--which --shows full path of the executable of that command
+
+--regex ^-beginning of a line( can mean not some times )
+        $-ending of a line
+        .-any character
+        *
+
+--grep --searches for the pattern and prints the line
+       i-ignores the case
+       E-to inter[ret special characters
+       quantifiers --*-zero or more times of preceding character
+                   --?-zero or one time of preceding character
+                   --+-one or more times of of preceding character
+                   --{n,}-atleast n times of preceding character
+                   --{,m}-atmost m times of preceding character
+                   --{n,m}-from n to m times of preceding character
+                   --{n}-n times of preceding character
+       groups and ranges --()-to group some characters and interprets as one character as a whole
+                         --[]-range of characters ( matches any character in the range)
+                         --[a-z] [A-Z]
+                         --[^]- means not i
+       special characters --\s-space
+                          --\b-matches any character that is not a letter or number and does not include itself in the match
+       we can also match patterns in the output of other command by seperating grep command by a |
+        v-negation ( print the lines that does not match )
+        r-recursively searches the files in the directory
+        w-whole word( not a part of a word )
+        n-shows line number
+        c-gives count of lines( not occurences )
+     
+--find  find location -type( f-files d-directories )
+                      -name
+                      -size (+n -n)
+                      -perm 
+                      -delete
+             i-case insensitive
+
+--wc    prints lines words characters
+        w-words
+        m-characters
+        l-lines
+        c-bytes
+        can pass multiple files
+
+--sort  sorts the records in a file 
+        r-sorts in reverse order
+        n-sorts numerically
+        sort -t 'seperator' -kposition file
+
+--cut  -d specify a delimiter
+       -f specifies field( -4 means 1 to 4 )
+       -b specifies bytes
+          --output-delimiter="delimiter"
+          --complement( outputs fields that are compliment to the arguments )
+        
+--paste  merge lines of files horizontally
+         d-to specify a delimiter
+         s-pastes serially one after the other
+
+--ps  display the processes that are currently executing
+      without any options it shows only processes that are executed by shell
+      a-displays the processes of all users
+      u-user oriented formats
+      x-list processes including that are not controlling by the terminal
+      ps aux --sort=-%mem( to sort the processes based on memory usage )
+
+--sleep - sleep time &
+--kill -  (kill pid-of-sleep)
+
+-stdout-1
+-stderr-2
+
+> out 2>&1
+
+/dev/null ( special file that discards anything written to it )
+
+--pipe |  takes output from one command and feeds it as input to another command
+        
+--uniq - to remove duplicates
+
+--date +%s - tells the seconds passed since some time
+
+we can use the output of a command in another command $(command) or `command`
+
+--Access control -u user
+                 -g group
+                 -o other 
+                 -a all
+                 use + to add - to remove = to change perm
+                 r-4 w-2 x-1 none-0
+                 
+--chmod   chmod ugo fileetc
+          chmod u=r vehf
+          R-recursively
+
+--zip  zip cnwj.zip files 
+       r-recursive
+       e-password
+       
+--unzip l-does not decompress but lists what is inside the zip including file sizes, modification dates etc
+        d-unzips the given zipped file into a specified directory
+
+--tar -c: Create a new archive.
+      -v: Verbose mode
+      -f: Specify the name of the archive file
+      -x: Extract files from an archive.
+      -z: Specifies that the archive is compressed with gzip
+      -t: Lists the contents of the archive
+        

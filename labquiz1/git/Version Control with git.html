@@ -1,0 +1,828 @@
+
+<!-- saved from url=(0063)https://www.cs.odu.edu/~zeil/cs252/latest/Public/git/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./Version Control with git_files/md-scroll.css" media="screen, projection, print" rel="stylesheet" type="text/css"><link href="./Version Control with git_files/md-scroll-ext.css" media="screen, projection, print" rel="stylesheet" type="text/css"><meta content="width=device-width, initial-scale=1" name="viewport"><link href="./Version Control with git_files/googlecode.css" rel="stylesheet"><script src="./Version Control with git_files/highlight.pack.js"> </script><script>hljs.initHighlightingOnLoad();</script><script src="./Version Control with git_files/md-scroll.js" type="text/javascript"> </script><script src="./Version Control with git_files/md-scroll-ext.js" type="text/javascript"> </script><script src="./Version Control with git_files/rawdeflate.js" type="text/javascript"> </script><script src="./Version Control with git_files/plantuml.js" type="text/javascript"> </script><script src="./Version Control with git_files/mermaid.min.js" type="text/javascript"> </script><script type="text/javascript">
+             window.MathJax = {
+               tex2jax: {
+               inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+               processEscapes: true
+             }
+           };
+           </script><script src="./Version Control with git_files/MathJax.js" type="text/javascript"> </script><title>Version Control with git</title><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head><body><div id="MathJax_Message" style="display: none;"></div><script>sshowControl0 = { counter: 1,
+             showNumber: 0, max: 1};
+             window.onhashchange = hashHasChanged;</script><div class="navHeader" id="slideshowControlA0"><table class="navHeader"><tbody><tr class="slideshowcontrol"><td class="slideshowcontrolLeft"></td><td class="slideshowcontrolMiddle">
+<a class="imgLink" href="https://www.cs.odu.edu/~zeil/cs252/latest/Directory/outline/index.html" title="Course home/outline"><img src="./Version Control with git_files/home.png"></a>
+<a href="mailto:npolawar@odu.edu?subject=CS252%2C%20Version%20Control%20with%20git"><img src="./Version Control with git_files/email.png" title="Email to instructor"></a><span style="margin: 0 32px;"></span></td><td class="slideshowcontrolRight"></td></tr></tbody></table></div><div class="mainBody"><div class="titleblock"><h1 class="title">Version Control with git</h1><h2 class="author">Steven J Zeil</h2><div class="date">Last modified: Dec 20, 2023</div></div><div class="toc">Contents:<div class="toc-h1"><a href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/git/index.html#repositories-working-directories">1 Repositories &amp; Working Directories</a></div><div class="toc-h1"><a href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/git/index.html#git">2 git</a></div><div class="toc-h2"><a href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/git/index.html#local-repositories-origins">2.1 Local Repositories &amp; Origins</a></div><div class="toc-h2"><a href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/git/index.html#the-stage">2.2 The Stage</a></div><div class="toc-h1"><a href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/git/index.html#github">3 GitHub</a></div><div class="toc-h1"><a href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/git/index.html#working-with-git-and-github">4 Working with git and GitHub</a></div><div class="toc-h2"><a href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/git/index.html#starting-on-a-project-">4.1 Starting on a project.</a></div><div class="toc-h2"><a href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/git/index.html#working-with-your-project-files">4.2 Working with Your Project Files</a></div><div class="toc-h2"><a href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/git/index.html#time-traveling">4.3 Time Traveling</a></div><div class="toc-h1"><a href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/git/index.html#gui-interfaces-to-git">5 GUI Interfaces to git</a></div><div class="toc-h1"><a href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/git/index.html#summary-of-commands">6 Summary of <code>git</code> Commands</a></div><div class="toc-h2"><a href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/git/index.html#basics">6.1 Basics</a></div><div class="toc-h2"><a href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/git/index.html#going-back-in-time">6.2 Going Back in Time</a></div></div><p><em>Version control</em> tools help us keep track of the source code we write for out projects.</p>
+    <p>Version control has two major benefits.</p>
+    <ol>
+  <li>Version control is like a backup system on steroids.
+    <ul>
+      <li>You can look back at old versions of your files, see exactly what you changed in each one and when you did it.</li>
+      <li>You can restore old versions if you have messed things up in your current one.</li>
+    </ul>
+  </li>
+  <li>Version control is crucial when you are working on team projects.
+    <p>Suppose that two programmers, working together on the same project, suddenly discover that they have both been editing the same file at the same time. Under ordinary circumstances, whoever saves their work first loses. That’s because the person who saves the file last will overwrite everything contributed by the first person.</p>
+    
+    <p>Under version control, whoever saves first wins, and the person who saves second will be annoyed but will not risk losing their work. The version control system will realize that both programmers have been changing the same file, and will walk the second person through the process of merging their two sets of changes to the file.</p>
+    
+  </li>
+</ol><p>In this class, we are going to focus on the first benefit of version control, which is useful even to programmers working on their own. using version control for collaborative work is covered in later courses such as <a href="https://www.cs.odu.edu/~zeil/cs350/latest/">CS350</a>.</p>
+    <a id="repositoriesworkingdirectories"><h1 id="repositories-working-directories">1 Repositories &amp; Working Directories</h1><p>All version control systems start with the idea of a <em>repository</em>, a collection of versions of files that have been part of a project. If a project has 20 files, the repository will collect those 20 files. But as those files are changed over time, the repository will also remember the old versions of those files. If a file is removed/deleted from the project, the repository will still remember that file used to exist, and, if necessary, can retrieve it. If a new file is added to the project, the repository will know when it was added, and will not include it in any listings of prior versions of the project.</p>
+    <p>Programmers do not, however, edit, compile, or even read the files directly in the repository. Instead, programmers work on a copy of the files in their <em>working directory</em>. The working directory is just an ordinary directory like the ones you have been using all along.</p>
+    <p>We can think of the relationship between a file in the working directory and its equivalent in the repository like this:</p>
+    <p></p><div class="noFloat">&nbsp;</div>
+    <div style="text-align: center&#39;"><img align="center" src="./Version Control with git_files/fileAndVersions.png" style="max-width: 90%;"></div>
+    <p></p>
+    <p>and of an entire project like this:</p>
+    <p></p><div class="noFloat">&nbsp;</div>
+    <div style="text-align: center&#39;"><img align="center" src="./Version Control with git_files/wdAndRepo.png" style="max-width: 90%;"></div>
+    <p></p>
+    <p>The repository knows what files are in the project and the directory structure that holds those files. But it keeps multiple versions of each file.</p>
+    <ul>
+  <li>When we send the current contents of a file to the repository, we say that we are <em>committing our changes</em> to the repository. The current contents of the file become a new version.</li>
+  <li>When we ask the repository to give us a copy of a version of that file, we say that we are <em>checking out</em> that version of the file.</li>
+</ul><h1 id="git">2 git</h1><p>The version control system that we will be using is called <code>git</code>. <code>git</code> has a slightly more complicated model that what we have just looked at. The payoff for this added complexity is a lot more flexibility and better protection for your data.</p>
+    </a><a id="localrepositoriesorigins"><h2 id="local-repositories-origins">2.1 Local Repositories &amp; Origins</h2><p></p><div class="noFloat">&nbsp;</div>
+    <img src="./Version Control with git_files/simpleOrigin.png" style="float: right; max-width: 40%;"><p></p>
+    <p>We usually have more than one repository. We work most closely with our <em>local repository</em>, which is tucked away in a directory somewhere near our working directory. But we can have other repositories as well. When working solo on a project, we will usually have a remote <em>origin repository</em> that we try to keep more or less in sync with our local repository. </p>
+    <ul>
+  <li>Because the origin repository is on a remote server somewhere “in the cloud”, even if our  local PC were to crash and completely trash its hard drive, our project would survive.</li>
+</ul><p></p><div class="noFloat">&nbsp;</div>
+    <img src="./Version Control with git_files/localsOnly.png" style="float: right; max-width: 40%;"><p></p>
+    <ul>
+  <li>If you are working in a team with other programmers, you can have multiple origin repositories, each of which resides on a different person’s PC.
+    <ul>
+      <li>In essence, everyone’s repository is an origin to everyone else.</li>
+    </ul>
+  </li>
+</ul><p></p><div class="noFloat">&nbsp;</div>
+    <img src="./Version Control with git_files/commonOrigin.png" style="float: right; max-width: 40%;"><p></p>
+    <ul>
+  <li>More often, when working in a team, all programmers share a common origin repository on a remote server and each person keeps  their own local repository synced up with that.
+    <p>This is just less confusing overall.</p>
+    
+  </li>
+</ul><p></p><div class="noFloat">&nbsp;</div>
+    <div style="text-align: center&#39;"><img align="center" src="./Version Control with git_files/originRepo.png" style="max-width: 95%;"></div>
+    <p></p>
+    <p>To keep the local and origin repositories in sync, we have to <em>push</em> our changes from our local repository to the origin and <em>fetch</em> changes anyone else may have made from the <em>origin</em> to our local repository.</p>
+    <p>Fetching changes simply updates our local repository – we don’t see those changes in our working directory (where we actually are doing all of work) unless we check out those changes into our working directory.</p>
+    <p>Usually, though, when we fetch changes we want to see them right away. So <code>git</code> has a shortcut operation called <em>pull</em> that combines a fetch and a check out.</p>
+    <p></p><div class="noFloat">&nbsp;</div>
+    <div style="text-align: center&#39;"><img align="center" src="./Version Control with git_files/pullRepo.png" style="max-width: 95%;"></div>
+    <p></p>
+    <ul>
+  <li>As a daily user of <code>git</code>, I almost always <em>pull</em>. In the last year, for example, I have done maybe one <em>fetch</em> instead of a <em>pull</em>.</li>
+</ul></a><a id="thestage"><h2 id="the-stage">2.2 The Stage</h2><p>We don’t usually commit/checkout/fetch/push/pull individual files. Usually we send all of files that we have changed in our work session.</p>
+    <p>Occasionally, though, we might want to hold some of those files back.</p>
+    <p>For example, while trying to fix a bug, I might notice some misspelled words in the documentation. I fix those while I am working on the bug. But do I want to commit those together with my bug fix? What if my bug fix is wrong and someone decides to undo those changes? Do I want to lose the documentation fixes at the same time? It might make more sense to commit the unrelated changes in separate steps.</p>
+    <p><code>git</code> supports this by inserting a <em>stage</em> (also called an <em>index</em>) between the working directory and the local repository.</p>
+    <p></p><div class="noFloat">&nbsp;</div>
+    <div style="text-align: center&#39;"><img align="center" src="./Version Control with git_files/stage.png" style="max-width: 95%;"></div>
+    <p></p>
+    <p>Now we <em>commit</em> from the stage instead of from the working directory. We choose the files that we want to include in the next commit by <em>adding</em> them to stage (also referred to as <em>staging the files</em>).</p>
+    <h1 id="github">3 GitHub</h1><p>Where do we keep the origin repository?</p>
+    <p>It could be kept on almost any SSH server, but the most popular approach is to use a version control service that combines storage for <code>git</code> repositories with project management support that, among other things, lets us control who is allowed to work with our origin repository. </p>
+    </a><p><a id="thestage">The ODU CS Department, for example, runs </a><a href="https://git-community.cs.odu.edu/">its own GitLab</a>, and these lecture notes that you are reading right now have been archived there since they were first written. Versions of this course can be recovered there going back many semesters.</p>
+    <p>By far the most popular version control service, however, is <a href="https://github.com/">GitHub</a>, which hosts over 200 million repositories. This is the service we will be using.</p>
+    <blockquote class="example" id="example1"><div class="exampleTitle">Example 1: Try This: Logging in to GitHub</div>
+<ol>
+  <li>
+  <p>Browse to <a href="https://github.com/">https://github.com/</a> and sign up for a (free) GitHub account.</p>
+    </li>
+  <li>
+  <p>Log in at GitHub using your new credentials.</p>
+    </li>
+  <li>
+    <p>Before you can work with git repositories on GitHub, you will need a second way to identify yourself. Your login name  and password will get you into the GitHub website, but when working with <code>git</code> operations, you will need to use an SSH key.</p>
+    
+    <p>You may use your SSH key pair from <a href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/git/sshKeys#">this earlier exercise</a>, or create a new key pair to use with GitHub.</p>
+    
+    <ol>
+      <li>Log into <a href="https://github.com/">GitHub</a>.</li>
+      <li>In the upper-right corner of the GitHub page is a small circle with an picture or icon. Click on it to drop down a menu and select “Settings”.</li>
+      <li>Click on “SSH and GPG keys”.</li>
+      <li>Click “New SSH Key”.</li>
+      <li>Type an appropriate title - something you will recognize later.</li>
+      <li>On your PC, open your <strong>public</strong> key in any text editor (e.g., NotePad on Windows or TextEdit on macOS).</li>
+      <li>Copy and paste the entire text of the public key from the editor into the “Key” box on the GitHub page.</li>
+      <li>Click the “Add SSH key” button.</li>
+    </ol>
+  </li>
+</ol>
+</blockquote><a id="workingwithgitandgithub"><h1 id="working-with-git-and-github">4 Working with git and GitHub</h1></a><a id="startingonaproject"><h2 id="starting-on-a-project-">4.1 Starting on a project.</h2><p>There are two basic scenarios for start-up:</p>
+    <ol>
+  <li>You’re starting from scratch. You have no repositories. You might have a few files already squirreled away in a directory,  but they aren’t under version control yet.</li>
+  <li>You are joining a project that has already been set up, by your or by someone else. There’s already a repository on GitHub with one or more files. You need to make a <em>clone</em> of that project in your own directories.</li>
+</ol></a><a id="startingfromscratch"><h3 id="starting-from-scratch">4.1.1 Starting from scratch</h3><p>There’s a few different ways to handle this. </p>
+    <p>I find it easiest to finesse this by asking GitHub to create the initial (origin) repository, then join that project from my local PC.</p>
+    <blockquote class="example" id="example2"><div class="exampleTitle">Example 2: Try This: Creating a Project on GitHub</div>
+<ol>
+  <li>
+    <p>Log into GitHub.</p>
+    
+    <p>Click “Repositories”. Surprise! You don’t have any yet.</p>
+    
+  </li>
+  <li>
+  <p>Click the “New” button.</p>
+    </li>
+  <li>For the “Repository name”, let’s use “CS252-project1”.
+    <p>Enter something appropriate into the “Description”.</p>
+    
+    <p>Click “Private”. (You can change this later if you decide you are particularly proud of your work.)</p>
+    
+    <p>Add check marks to the boxes “Add a README file” and “Add .gitignore”. * A drop-down box will appear beneath the .gitignore option. In there, select “Java”.</p>
+    
+    <p>Click “Create Repository”.</p>
+    
+  </li>
+  <li>
+    <p>You’ll now be taken to your new project page. You can see the file listing showing the two files that GitHub has set up for you.</p>
+    
+    <p>Click on the file name to view the contents of the file.</p>
+    
+  </li>
+</ol>
+</blockquote><p>You now have a project on GitHub that includes an origin repository with two files.</p>
+    <p>Next, you will create a <em>clone</em> of that project in your Linux account.</p>
+    </a><a id="cloninganexistingproject"><h3 id="cloning-an-existing-project">4.1.2 Cloning an Existing Project</h3><p>When you want to work with a project that already has an origin repository on GitHub, you start by <em>cloning</em> that project.</p>
+    <p>The command to clone a remote repository is</p>
+    <pre><code class=" hljs php">git <span class="hljs-keyword">clone</span> <i>repositoryURL</i>
+</code></pre><p>where <em>repositoryURL</em> is an SSH URL describing where the origin repository lives.</p>
+    <p>Cloning creates a local repository and a working directory for you.</p>
+    </a><blockquote class="example" id="example3"><a id="cloninganexistingproject"><div class="exampleTitle">Example 3: Try This: Cloning an Origin Repository</div>
+</a><ol><a id="cloninganexistingproject">
+  </a><li><a id="cloninganexistingproject">
+  </a><p><a id="cloninganexistingproject">Make sure that you have </a><a href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/git/index.html#example1">registered an SSH key with GitHub</a> and have <a class="doc" href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/sshkeys/index.html#key-agents" target="CS252_Public">added that key to an SSH key agent</a>.</p>
+    </li>
+  <li>
+    <p>Open an SSH session on one of the CS Linux servers:</p>
+    
+    <pre><code class=" hljs ruby">ssh -<span class="hljs-constant">A</span> <i>yourLoginName</i><span class="hljs-variable">@linux</span>.cs.odu.edu
+</code></pre>
+    <p>The <code>-A</code> option here is important. It means that, when you start to use <code>git</code> commands to talk to GitHub, any requests from GitHub to validate your SSH key will be forwarded back from <code>linux.cs.odu.edu</code> to your own PC. </p>
+    
+    <p>You must use an “ordinary” SSH session for this, not X2Go. X2Go does not support SSH key forwarding. You can, however, have X2Go running in one window for using editors and, in future lessons, IDEs, while you have an ordinary SSH session running in a different window. </p>
+    
+  </li>
+  <li>
+    <p>If this is the first time you are using <code>git</code> on this machine, you should tell it who you are. Give the commands</p>
+    
+    <pre><code class=" hljs php">git config --<span class="hljs-keyword">global</span> user.name <span class="hljs-string">"</span><i><span class="hljs-string">your-real-name</span></i><span class="hljs-string">"</span>
+git config --<span class="hljs-keyword">global</span> user.email <span class="hljs-string">"</span><i><span class="hljs-string">your-odu.edu-email</span></i><span class="hljs-string">"</span>
+</code></pre>
+  </li>
+  <li>
+  <p><code>cd</code> to <code>~/playing</code>.</p>
+    </li>
+  <li>
+    <p>In a web browser, log into GitHub and go to your CS252-project1 page.</p>
+    
+    <p>You’ll see a large green “Code” button. Click that to drop down a menu.</p>
+    
+    <p>Under “Clone”, click SSH to see the SSH URL. Click the clipboard button to the right of that URL to copy it.</p>
+    
+  </li>
+  <li>
+    <p>Back in your SSH session, type the opening part of the git clone command: <code>git clone</code> </p>
+    
+    <p>…followed by a space. Then paste the URL you copied in the previous step. Hit Enter to issue the command.</p>
+    
+  </li>
+  <li>
+    <p>In a few seconds, the command should exit. Do an</p>
+    
+    <pre><code class=" hljs ">ls
+</code></pre>
+    <p>and you will see you have a new <code>CS252-project1/</code> directory. </p>
+    
+    <p>If, when you issue the <code>git clone</code> command, you are prompted for a login name/password to log into GitHub, you have a problem with your SSH key setup. Possible problems are:</p>
+    
+    <ul>
+      <li>You didn’t register the public key with your GitHub account.</li>
+      <li>You don’t have the private key active in an SSH key agent.</li>
+      <li>You omitted the <code>-A</code> option when starting your SSH session.</li>
+    </ul>
+    <p>Use Ctrl-C to cancel the clone command, try to fix your SSH issues, and try the clone command again.</p>
+    
+  </li>
+  <li>
+    <p>Do</p>
+    
+    <pre><code class=" hljs bash"><span class="hljs-built_in">cd</span> CS252-project1
+ls <span class="hljs-operator">-a</span>
+</code></pre>
+    <p>and you will see that you have copies of the <code>README.md</code> and <code>.gitignore</code> files that were created by GitHub. (The <code>-a</code> option is necessary because file names that start ‘.’ are hidden in Unix by default.)</p>
+    
+    <p>Do</p>
+    
+    <pre><code class=" hljs ">more README.md
+more .gitignore
+</code></pre>
+  </li>
+</ol>
+</blockquote><a id="workingwithyourprojectfiles"><h2 id="working-with-your-project-files">4.2 Working with Your Project Files</h2><p>In your working directory, you can now use editors, compilers, and any of the conventional file manipulation commands we have studies to work with your files.</p>
+    <p>When you have reached a natural breaking point in your work or are about to pause for any length of time, you will want to commit your work. </p>
+    <p>The command</p>
+    <pre><code class=" hljs ">git status
+</code></pre><p>will print a list of all files in your local repository that have been changed, created or deleted. It will also list which of these have been staged for the next commit. </p>
+    <ul>
+  <li>This status report will ignore files that are listed in your <code>.gitignore</code> file.</li>
+</ul><p>It’s not unusual to look at that list and wonder just what changes you’ve made to a file. The command</p>
+    <pre><code class=" hljs ">git diff <i>path-to-file</i>
+</code></pre><p>will show you the differences between the current contents of that file and the last-committed contents.</p>
+    <p>When you are ready to commit, you start by adding changes to the stage. the command for this is</p>
+    <pre><code class=" hljs ">git add <i>path-to-file-1</i> <i>path-to-file-2</i> <i>path-to-file-3</i> ...
+</code></pre><p>You can add entire directories of files by giving the path to the directory.</p>
+    <p>When you have added everything you want to the stage (check this with <code>git status</code>), you commit your changes to your local repository with the command</p>
+    <pre><code class=" hljs sql">git <span class="hljs-operator"><span class="hljs-keyword">commit</span> -m <span class="hljs-string">"</span></span><i><span class="hljs-operator"><span class="hljs-string">Brief description of the commit</span></span></i><span class="hljs-operator"><span class="hljs-string">"</span>
+</span></code></pre><img align="right" src="./Version Control with git_files/git_commit.png"><p>Try to use appropriately helpful descriptions. You’ll thank yourself later.</p>
+    <p>Finally, you can send your commits up to the origin repository on GitHub with the command</p>
+    <pre><code class=" hljs perl">git <span class="hljs-keyword">push</span>
+</code></pre></a><blockquote class="example" id="example4"><a id="workingwithyourprojectfiles"><div class="exampleTitle">Example 4: Try This: Editing Files and Saving Your Work</div>
+</a><ol><a id="workingwithyourprojectfiles">
+  </a><li><a id="workingwithyourprojectfiles">
+  </a><p><a id="workingwithyourprojectfiles">Again, make sure that you have an SSH key that you have registered with GitHub and that you have </a><a class="doc" href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/sshkeys/index.html#key-agents" target="CS252_Public">added that key to an SSH key agent</a>.</p>
+    </li>
+  <li>
+    <p>Open an SSH session on one of the CS Linux servers:</p>
+    
+    <pre><code class=" hljs ruby">ssh -<span class="hljs-constant">A</span> <i>yourLoginName</i><span class="hljs-variable">@linux</span>.cs.odu.edu
+</code></pre>
+    <p>and <code>cd</code> to <code>~/playing/CS252-project1</code>.</p>
+    
+  </li>
+  <li>
+    <p>Give the command </p>
+    
+    <pre><code class=" hljs ">git status
+</code></pre>
+    <p>and verify that you have nothing waiting to be committed into your everything is up-to-date.</p>
+    
+  </li>
+  <li>
+    <p>Add the files from <a class="doc" href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/make/index.html#example4" target="CS252_Public">this earlier Try This</a> to your project directory.</p>
+    
+    <pre><code class=" hljs ruby">ls ~<span class="hljs-regexp">/playing/with</span>Make/
+cp ~<span class="hljs-regexp">/playing/with</span>Make/* .
+ls
+</code></pre>
+    <p>and build the program.</p>
+    
+    <pre><code class=" hljs ">make
+</code></pre>
+  </li>
+  <li>
+    <p>Now check your status again:</p>
+    
+    <pre><code class=" hljs ">ls
+git status
+</code></pre>
+    <p>This time you will be informed of a number of “untracked” files. These are new files that <code>git</code> does not yet know whether we want to keep under version control.</p>
+    
+    <p>Did you notice that some files were <em>not</em> listed as untracked? The <code>.class</code> files were not listed because your <code>.gitignore</code> file includes the pattern: <code>*.class</code>. That tells <code>git</code> to ignore these files - we never want to track them in our repository. This makes sense because</p>
+    
+    <ul>
+      <li>we can rebuild those files at any time by just issuing a <code>make</code> command, and</li>
+      <li>those are binary files – version control usually focuses on the text files that make up our projects.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Use the <code>emacs</code> editor to make a small change to <code>Pie.java</code> – add a Java comment.</p>
+    
+    <p>Do </p>
+    
+    <pre><code class=" hljs bash">ls <span class="hljs-operator">-a</span>
+git status
+</code></pre>
+    <p>Notice the addition of the new file <code>Pie.java~</code>. <code>emacs</code> creates a backup copy of files when you edit them, naming the backup the same as the original file except for a <code>~</code> at the end.</p>
+    
+    <p>We probably don’t want <code>git</code> to track backup files.</p>
+    
+    <p>Edit <code>.gitignore</code> and add this line at the end:</p>
+    
+    <pre><code class=" hljs ">*~
+</code></pre>
+    <p>Save your changes to that file, exit the editor, and do</p>
+    
+    <pre><code class=" hljs ">git status
+</code></pre>
+    <p>again. Notice that <code>Pie.java~</code> is no longer listed. But <code>.gitignore</code> now appears in a list of files that <em>are</em> being tracked and that have been changed.</p>
+    
+  </li>
+  <li>
+    <p>Let’s commit these changes.</p>
+    
+    <pre><code class=" hljs ">git add *.java makefile .gitignore
+git status
+</code></pre>
+    <p>The status should show that everything that has been changed will now be committed.</p>
+    
+    <pre><code class=" hljs sql">git <span class="hljs-operator"><span class="hljs-keyword">commit</span> -m <span class="hljs-string">"added source code"</span>
+git status
+</span></code></pre>
+    <p>The status will now indicate that nothing needs to be committed, but will note that we are ahead of the origin repository by one commit, i.e., we have a commit in our local repository that has not been sent to the origin repository on GitHub.</p>
+    
+    <pre><code class=" hljs perl">git <span class="hljs-keyword">push</span>
+git status
+</code></pre>
+    <p>And all should be well.</p>
+    
+  </li>
+  <li>
+    <p>Go back to your web browser and look at your CS252-project1 page. Refresh the page if necessary.</p>
+    
+    <p>You should see that there are now quite a few more files in the repository.</p>
+    
+  </li>
+</ol>
+<p>Congratulations! Your code is now safe “in the cloud”.</p>
+    
+</blockquote><a id="timetraveling"><h2 id="time-traveling">4.3 Time Traveling</h2><p><code>git</code> backs up the history of changes to our programming project.</p>
+    <p>But what can we <em>do</em> with those backups?</p>
+    <ol>
+  <li>
+  <p>We can look back in time, and see what changes we have made and when we made them. (On team projects, we can also see <em>who</em> made them.)</p>
+    </li>
+  <li>
+  <p>We can replace any file with an older version if we desire. This frees us to try “risky” changes to our code, knowing that we can always roll back those changes if we decide we don’t like them.</p>
+    </li>
+</ol><p>The command</p>
+    <pre><code class=" hljs perl">git <span class="hljs-keyword">log</span>
+</code></pre><p>lists the history of commits made in the project.</p>
+    <p>A typical output would look like:</p>
+    <pre><code class=" hljs sql">$ git log
+<span class="hljs-operator"><span class="hljs-keyword">commit</span> <span class="hljs-number">1</span>ebc175afe7cdb9116e6b735f5608a72cd2e7294 (HEAD -&gt; main, origin/main, origin/HEAD)
+Author: zeil &lt;zeil@cs.odu.edu&gt;
+<span class="hljs-keyword">Date</span>:   Mon May <span class="hljs-number">10</span> <span class="hljs-number">11</span>:<span class="hljs-number">44</span>:<span class="hljs-number">11</span> <span class="hljs-number">2021</span> -<span class="hljs-number">0400</span>
+
+    added source code
+
+<span class="hljs-keyword">commit</span> <span class="hljs-number">94</span>acc28819d127fbb23a8dc76f7384a867e0a2e2
+Author: Steven J Zeil &lt;zeil@cs.odu.edu&gt;
+<span class="hljs-keyword">Date</span>:   Mon May <span class="hljs-number">10</span> <span class="hljs-number">11</span>:<span class="hljs-number">28</span>:<span class="hljs-number">50</span> <span class="hljs-number">2021</span> -<span class="hljs-number">0400</span>
+
+    Initial <span class="hljs-keyword">commit</span>
+</span></code></pre><p>Each commit is described by three lines of data, followed by the message that was used in the <code>git commit</code> command as the brief description of that commit. </p>
+    <ul>
+  <li>
+  <p>In this example, there are two commits on the project. The older one was described as“Initial commit” and the newer one as “added source code”.</p>
+    </li>
+  <li>
+  <p>In the three lines at the beginning of each commit description, the 2nd and 3rd (Author and Date) are pretty self-explanatory.</p>
+    </li>
+  <li>
+    <p>The first line contains one or more identifiers for the commit.</p>
+    
+    <ul>
+      <li>The first is a long hexadecimal number, sometimes called the commit’s <em>hash</em>. This is the most surefire way to identify a commit, but no one would want to have to type that long number into a command.
+        <ul>
+          <li>Fortunately, <code>git</code> has a rule that you only need to type as many digits as necessary to distinguish one commit from the others.</li>
+          <li>Most <code>git</code> users will simply type the first 5 digits or so, e.g., 1ebc1 or 94acc. if that’s not long enough, <code>git</code> will tell you.</li>
+        </ul>
+      </li>
+      <li>“HEAD” is a shorthand name for the “current” commit in a repository. This is usually the most recent commit along some branch (a list of commits that lead from one to the next). In this course, we are only dealing with two branches, a list of commits called “main” in your local repository, and the matching list of changes called “main” in the origin repository.
+        <ul>
+          <li>So the most recent commit can be identified as “1ebc1”, or as “HEAD” in the local repository, or as “origin/HEAD” in the origin repository.</li>
+        </ul>
+      </li>
+      <li>You can also refer to the most recent commit in a branch by the name of that branch.
+        <ul>
+          <li>Because, in this course, we only have one branch in each repository named main, we can also refer to the most recent commit as “main” or “origin/main”.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul><p>You can also use the <code>git log</code> command to list the history of changes to a single file.</p>
+    <pre><code class=" hljs perl">git <span class="hljs-keyword">log</span> <i>path-to-file</i>
+</code></pre><p>Only commits in which that file was changed will be listed.</p>
+    </a><blockquote class="example" id="example5"><a id="timetraveling"><div class="exampleTitle">Example 5: Try This: Reading the logs</div>
+</a><ol><a id="timetraveling">
+  </a><li><a id="timetraveling">
+  </a><p><a id="timetraveling">Again, make sure that you have </a><a href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/git/index.html#example1">registered an SSH key with GitHub</a> and have <a class="doc" href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/sshkeys/index.html#key-agents" target="CS252_Public">added that key to an SSH key agent</a>.</p>
+    </li>
+  <li>
+    <p>Open an SSH session on one of the CS Linux servers:</p>
+    
+    <pre><code class=" hljs ruby">ssh -<span class="hljs-constant">A</span> <i>yourLoginName</i><span class="hljs-variable">@linux</span>.cs.odu.edu
+</code></pre>
+    <p>and <code>cd</code> to <code>~/playing/CS252-project1</code>.</p>
+    
+  </li>
+  <li>
+    <p>Give the command</p>
+    
+    <pre><code class=" hljs perl">git <span class="hljs-keyword">log</span>
+</code></pre>
+    <p>to see the entire log.</p>
+    
+  </li>
+  <li>
+    <p>Give the commands</p>
+    
+    <pre><code class=" hljs perl">git <span class="hljs-keyword">log</span> README.md
+git <span class="hljs-keyword">log</span> makefile
+git <span class="hljs-keyword">log</span> .gitignore
+</code></pre>
+    <p>The first will list only the initial commit, because you did not edit README.md after it was created.</p>
+    
+    <p>The second will list only the “added source” commit, because makefile did not exist at the time of the initial commit.</p>
+    
+    <p>The third one lists both commits, because <code>.gitignore</code> was created in one and edited in the other.</p>
+    
+  </li>
+</ol>
+</blockquote><p>We’ve already used <code>git diff</code> to see what changes we have made since the last commit. But we can also list specific commits to see what changes have been made since that commit.</p>
+    <pre><code class=" hljs sql">git diff <i><span class="hljs-operator"><span class="hljs-keyword">commit</span>-id</span></i><span class="hljs-operator"> 
+</span></code></pre><blockquote class="example" id="example6"><div class="exampleTitle">Example 6: Try This: What Has Changed?</div>
+<ol>
+  <li>
+  <p>Again, make sure that you have <a href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/git/index.html#example1">registered an SSH key with GitHub</a> and have <a class="doc" href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/sshkeys/index.html#key-agents" target="CS252_Public">added that key to an SSH key agent</a>.</p>
+    </li>
+  <li>
+    <p>Open an SSH session on one of the CS Linux servers:</p>
+    
+    <pre><code class=" hljs ruby">ssh -<span class="hljs-constant">A</span> <i>yourLoginName</i><span class="hljs-variable">@linux</span>.cs.odu.edu
+</code></pre>
+    <p>and <code>cd</code> to <code>~/playing/CS252-project1</code>.</p>
+    
+  </li>
+  <li>
+    <p>Give the command</p>
+    
+    <pre><code class=" hljs perl">git <span class="hljs-keyword">log</span>
+</code></pre>
+    <p>to see the entire log. </p>
+    
+    <p>Write down (or copy) the first 5 digits of the identifier for your initial commit.</p>
+    
+  </li>
+  <li>
+    <p>Give the commands:</p>
+    
+    <pre><code class=" hljs sql">git diff .gitignore
+git diff HEAD .gitignore
+git diff <i><span class="hljs-operator"><span class="hljs-keyword">commit</span>-id</span></i><span class="hljs-operator"> .gitignore
+</span></code></pre>
+    <p>filling in or pasting the 5 digits you recorded earlier for the <em>commit-id</em>.</p>
+    
+    <p>The first two commands actually mean the same thing. If we don’t give the command a <em>commit-id</em>, it defaults to HEAD.</p>
+    
+    <p>The third command looks back at an earlier commit.</p>
+    
+  </li>
+  <li>
+    <p>We can see a lot of the same information in GitHub.</p>
+    
+    <p>Browse back to your project’s GitHub page.</p>
+    
+  </li>
+  <li>
+    <p>Look for this <img src="./Version Control with git_files/historyControl.png"> symbol (the number of commits will vary). Click on it. </p>
+    
+    <p>This takes you to list of the commits that you have pushed to the origin.</p>
+    
+  </li>
+  <li>
+    <p>Click on the message for the more recent commit. Now you can see a summary of what changes were in the last commit. A ‘+’ sign indicates a line that was added. A ‘-’ indicates a line that was deleted. </p>
+    
+    <p>You have a lot of ‘+’ marks because most of what we did was to add new files. But look at the listing for <code>.gitignore</code>. See how it focuses your attention on the specific changes that you made to that file?</p>
+    
+  </li>
+  <li>
+  <p>Use your browser’s back button to go bak to the list of commits. Click the message for the initial commit and see what changes were made then.</p>
+    </li>
+  <li>
+    <p>Go back to the list of commits again. Now click on the <code>&lt;&gt;</code> symbol alongside the initial commit. This shows you the file listing back at the time of the initial commit.</p>
+    
+    <p>You’re looking back in time at your former directory.</p>
+    
+  </li>
+  <li>
+    <p>Go back to your project’s home page by clicking on the project name <code>CS252-project1</code>. Click on the file <code>.gitignore</code>.</p>
+    
+    <p>Click on the <img src="./Version Control with git_files/fileHistory.png"> symbol and you can see another list of commits. This time, however, you only see the commits in which that file was changed.</p>
+    
+    <p>Repeat this step for some of the other files in the project.</p>
+    
+  </li>
+</ol>
+</blockquote><p>You aren’t limited to merely <em>looking</em> back in time.</p>
+    <p>You can move backwards in time by checking out an older commit. </p>
+    <pre><code class=" hljs sql">git checkout <i><span class="hljs-operator"><span class="hljs-keyword">commit</span>-id</span></i><span class="hljs-operator">
+</span></code></pre><p>This operation will replace the contents of your working directory by the contents it would have had at the time of that older commit. It leaves you in a bit of a strange state, however, where any new commits you make will not affect your main branch. So this is best used as a “look but don’t touch” way to explore the older code.</p>
+    <p>You can get back to your normal state by checking out the most recent commit in your branch:</p>
+    <pre><code class=" hljs ">git checkout main
+</code></pre><p>Something that I use more often is the ability to rollback individual files to old versions:</p>
+    <pre><code class=" hljs sql">git checkout <i><span class="hljs-operator"><span class="hljs-keyword">commit</span>-id</span></i><span class="hljs-operator"> -- </span><i><span class="hljs-operator">path-<span class="hljs-keyword">to</span>-a-file</span></i><span class="hljs-operator">
+</span></code></pre><p>This replaces the contents of that file as if you had simply edited to reverse all of the changes since that commit, but it leaves your local repository, as a whole, still in the HEAD state.</p>
+    <blockquote class="example" id="example7"><div class="exampleTitle">Example 7: Try This: Recovering old versions</div>
+<ol>
+  <li>
+  <p>Again, make sure that you have <a href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/git/index.html#example1">registered an SSH key with GitHub</a> and have <a class="doc" href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/sshkeys/index.html#key-agents" target="CS252_Public">added that key to an SSH key agent</a>.</p>
+    </li>
+  <li>
+    <p>Open an SSH session on one of the CS Linux servers:</p>
+    
+    <pre><code class=" hljs ruby">ssh -<span class="hljs-constant">A</span> <i>yourLoginName</i><span class="hljs-variable">@linux</span>.cs.odu.edu
+</code></pre>
+    <p>and <code>cd</code> to <code>~/playing/CS252-project1</code>.</p>
+    
+  </li>
+  <li>
+    <p>Give the command</p>
+    
+    <pre><code class=" hljs perl">git <span class="hljs-keyword">log</span>
+</code></pre>
+    <p>to see the entire log. </p>
+    
+    <p>Write down (or copy) the first 5 digits of the identifier for your initial commit.</p>
+    
+  </li>
+  <li>
+    <p>Give the commands:</p>
+    
+    <pre><code class=" hljs sql">git checkout <i><span class="hljs-operator"><span class="hljs-keyword">commit</span>-id</span></i><span class="hljs-operator">
+</span></code></pre>
+    <p>filling in or pasting the 5 digits you recorded earlier for the <em>commit-id</em>.</p>
+    
+    <p>Do an </p>
+    
+    <pre><code class=" hljs ">ls
+</code></pre>
+    <p>See how many files have disappeared? That’s because we have reverted our project back to the time before we added all of the source code.</p>
+    
+    <p>Undo that with</p>
+    
+    <pre><code class=" hljs ">git checkout main
+</code></pre>
+    <p>and do another </p>
+    
+    <pre><code class=" hljs ">ls
+</code></pre>
+    <p>Whew, we didn’t actually lose our work after all.</p>
+    
+  </li>
+  <li>
+    <p>Sometimes we make mistakes. Let’s make one now.</p>
+    
+    <pre><code class=" hljs ">rm *.java
+ls
+</code></pre>
+    <p>Oh, that’s not good!</p>
+    
+    <p>Let’s recover from our mistake.</p>
+    
+    <pre><code class=" hljs ">git checkout .
+ls
+</code></pre>
+    <p>What a relief! (Why did we use ‘<code>.</code>’? Remember that <code>.</code> refers to your current working directory. We cannot recover deleted files by saying “<code>git checkout *.cpp</code>” because those files are <em>gone</em> – the "*.cpp" won’t match files names that don’t exist. So, instead, we ask <code>git</code> to restore the current working directory, which in turn requires fetching the last know versions of those deleted files.)</p>
+    
+  </li>
+  <li>
+    <p>Let’s make a couple more changes.</p>
+    
+    <p>Edit <code>PieSlicer.java</code> and change the line in the <code>main</code> function from</p>
+    
+    <pre><code class=" hljs javascript"><span class="hljs-built_in">String</span> title = <span class="hljs-string">"Pie"</span>;
+</code></pre>
+    <p>to</p>
+    
+    <pre><code class=" hljs javascript"><span class="hljs-built_in">String</span> title = <span class="hljs-string">"Cake"</span>;
+</code></pre>
+    <p>Edit <code>PieView.java</code> and change the name of the function <code>paint</code> to <code>decorate</code>.</p>
+    
+    <p>Let’s commit and push those changes:</p>
+    
+    <pre><code class=" hljs sql">git add *.java
+git <span class="hljs-operator"><span class="hljs-keyword">commit</span> -m <span class="hljs-string">"I prefer cake."</span>
+git push
+</span></code></pre>
+  </li>
+  <li>
+    <p>Now, suppose that we decide that we like the changes made to <code>PieSlicer.java</code> but that the change to <code>PieView.java</code> was a mistake.</p>
+    
+    <p>Run</p>
+    
+    <pre><code class=" hljs perl">git <span class="hljs-keyword">log</span> PieView.java
+</code></pre>
+    <p>to examine the history of <code>PieView.java</code>. Write down or copy the first few digits of the commit identifier from before we added the comment.</p>
+    
+    <p>Do</p>
+    
+    <pre><code class=" hljs sql">git checkout <i><span class="hljs-operator"><span class="hljs-keyword">commit</span>-id</span></i><span class="hljs-operator"> -- PieView.java 
+</span></code></pre>
+    <p>inserting the 5 digit <em>commit-id</em> you saved.</p>
+    
+    <p>Do</p>
+    
+    <pre><code class=" hljs ">more PieView.java
+more PieSlicer.java
+</code></pre>
+    <p>and see for yourself that the changes to one file have been rolled back, but the changes to the other are still in place.</p>
+    
+  </li>
+  <li>
+    <p>Commit and push your changes:</p>
+    
+    <pre><code class=" hljs bash">git status
+git commit <span class="hljs-operator">-a</span> -m <span class="hljs-string">"Reverting paint rename"</span>
+git status
+git push
+</code></pre>
+    <p>Here we have used a shortcut in the <code>git commit</code> command. The <code>-a</code> option tells <code>git</code> to automatically add/stage any files that have changed. So it saves us the need to run the <code>git add</code> command. (This will not work with newly added, untracked files.)</p>
+    
+  </li>
+  <li>
+    <p>Take a last look at your project on GitHub.</p>
+    
+    <p>Click on <code>PieSlicer.java</code> in the file listing. Look at the upper right of the listing box for the “History” link. Click on it and compare to the changes we have been making.</p>
+    
+    <p>Do the same with <code>.gitignore</code>.</p>
+    
+    <p>Click on “Insights”. Examine the “Network” report. It’s looking a bit more substantial.</p>
+    
+  </li>
+</ol>
+</blockquote><p>On rare occasions, you may want to entirely abandon one or more commits and start working again from an earlier version. Remember that the HEAD is a marker telling git what is the most up-to-date commit in the repository.</p>
+    <p>You can move the HEAD marker to an earlier version using the <code>git reset</code> command.</p>
+    <blockquote>
+  <p>This should be used with caution. The effects are permanent, making it one of the few ways that <code>git</code> will allow you to lose changes that you have made. </p>
+    
+  <p>If you are working in a team with other people on the same project, doing this will break their own local repositories and may cause them to lose the code they have been working on.</p>
+    
+</blockquote><p><code>git reset --hard</code> <em>commit-id</em></p>
+    <p>marks the indicated commit as the new HEAD of the current branch. You can then do</p>
+    <pre><code class=" hljs ">git checkout HEAD
+</code></pre><p>to check out that older version.</p>
+    <a id="guiinterfacestogit"><h1 id="gui-interfaces-to-git">5 GUI Interfaces to git</h1><p>You’ve now seem quite a few <code>git</code> commands, and you might be wondering if there are ways to do all of this via a GUI (graphic user interface) rather than the command line.</p>
+    <p>GUI interfaces to <code>git</code> do exist. But few of them are good enough to completely replace the CLI <code>git</code> commands. And most are limited to repositories on your local PC, and will not help with repositories on remote Linux machines.</p>
+    </a><p><a id="guiinterfacestogit">That said, in the next section on </a><a class="doc" href="https://www.cs.odu.edu/~zeil/cs252/latest/Public/progdevx/index.html" target="CS252_Public">IDEs</a>, we will see that the recommended IDEs have some integrated support for <code>git</code>. I generally find that far more useful than running a separate program to monitor my <code>git</code> repositories.</p>
+    <p>Even those, however, are unlikely to completely replace the command line.</p>
+    <a id="summaryofcommands"><h1 id="summary-of-commands">6 Summary of <code>git</code> Commands</h1><h2 id="basics">6.1 Basics</h2><dl>
+  <dt><code>git clone</code> <em>URL</em>
+  </dt>
+  <dd>Make a local clone of a remote repository.
+    <p>Note: GitHub will offer you a selection of different URLs. Use the SSH URL. The HTTPS URL is <em>deprecated</em> (discouraged and subject to removal at any time) by GitHub and only gives you a copy of the repository that you can read but not update with changes.</p>
+    
+  </dd>
+</dl><p><code>git clone</code> <em>URL directory</em> : Like the prior command, but allows you to specify the name of the directory that will hold the new clone.</p>
+    <dl>
+  <dt><code>git config --global user.name</code> <em>“your-real-name”</em>
+  </dt>
+  <dd>Sets the name that will be associated with your git commits.
+    <p>Particularly important for group projects.</p>
+    
+  </dd>
+  <dt><code>git config --global user.email</code> <em>“your-odu.edu-email”</em>
+  </dt>
+  <dd>Sets the email address that will be associated with your git commits.
+    <p>Particularly important for group projects.</p>
+    
+  </dd>
+  <dt><code>git status</code></dt>
+  <dd>Shows the status of your local repository, including whether you have files that need to be committed and commits that need to be pushed.</dd>
+  <dt><code>git add</code> <em>path-to-file1 path-to-file2 path-to-file3 …</em>
+  </dt>
+  <dd>Adds the listed files to the <em>stage</em>. If a path to a directory is given, all  files in that directory are moved to the stage.</dd>
+  <dt><code>git commit -m</code> <em>“message”</em>
+  </dt>
+  <dd>Commits all files on the stage, saving a permanent snapshot of thos files.</dd>
+  <dt><code>git commit -a -m</code> <em>“message”</em>
+  </dt>
+  <dd>Like the previous command, but first automatically adds modified (but not new) files to the stage</dd>
+  <dt><code>git push</code></dt>
+  <dd>Send any commits on the local repository to the remote repositry (e.g., GitHub).</dd>
+  <dt><code>git pull</code></dt>
+  <dd>Get any commits that someone else (or you when working on a different machine or in a different directory) have previously sent yo the remote repository.
+    <p>If you are working on a team, it is important that you do this command whenever you start a new work session.</p>
+    
+  </dd>
+</dl></a><a id="goingbackintime"><h2 id="going-back-in-time">6.2 Going Back in Time</h2><dl>
+  <dt><code>git log</code></dt>
+  <dd>Prints a list of your past commits.</dd>
+  <dt><code>git log</code> <em>path-to-file</em>
+  </dt>
+  <dd>Prints a list of your past commits that included changes to the indicated file.</dd>
+  <dt><code>git diff</code></dt>
+  <dd>Shows what changes, if any, have been made since you last committed.</dd>
+  <dt><code>git diff</code> <em>path-to-file</em>
+  </dt>
+  <dd>Shows what changes, if any, have been made to a file since it was last committed.</dd>
+  <dt><code>git diff</code> <em>commit-id</em>
+  </dt>
+  <dd>Shows what changes, if any, have been made since that prior commit.</dd>
+  <dt><code>git checkout</code> <em>commit-id</em>
+  </dt>
+  <dd>Check out the entire project as it existed dring that commit.
+    <p>This is useful for examining old changes, but leaves your working directory in an unbusuable state. Do <code>git main</code> to restore it.</p>
+    
+  </dd>
+  <dt><code>git checkout</code> <em>commit-id</em> <code>--</code> <em>path-to-file</em>
+  </dt>
+  <dd>Replace the indicated file by the contents it had as of that prior commit. The rest of your wroking directory is unchanged.
+    <p>Use this to retrieve an old version of a file when you decide that your recent changes were a mistake. </p>
+    
+  </dd>
+</dl></a></div><script>sshowControl0 = { counter: 1,
+             showNumber: 0, max: 1};
+             window.onhashchange = hashHasChanged;</script><div class="navFooter" id="slideshowControl0"><table class="navFooter"><tbody><tr class="slideshowcontrol"><td class="slideshowcontrolLeft"></td><td class="slideshowcontrolMiddle">
+<a class="imgLink" href="https://www.cs.odu.edu/~zeil/cs252/latest/Directory/outline/index.html" title="Course home/outline"><img src="./Version Control with git_files/home.png"></a>
+<a href="mailto:npolawar@odu.edu?subject=CS252%2C%20Version%20Control%20with%20git"><img src="./Version Control with git_files/email.png" title="Email to instructor"></a><span style="margin: 0 32px;"></span></td><td class="slideshowcontrolRight"></td></tr></tbody></table></div><div class="copyright"><a id="goingbackintime">© 2015-2024, Old Dominion Univ.</a></div>
+</body></html>

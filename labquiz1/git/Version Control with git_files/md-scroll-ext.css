@@ -1,0 +1,17 @@
+iframe.forumFrame {
+    width: 100%;
+    height: 800px;
+	background: transparent
+}
+
+details.forumReveal {
+    margin-top: 2ex; 
+    padding-top: 1ex;
+    border-top-style: dashed;
+}
+
+details.forumReveal>summary {
+    font-weight: bold;
+    font-size: large;
+	color: rgb(0,0,128);
+}

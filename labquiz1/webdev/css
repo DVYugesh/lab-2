@@ -1,0 +1,211 @@
+inline as an attribute ( style="   :   " )
+internal (in head element)
+external (<head>
+          <link rel="stylesheet" href="mystyle.css">
+          </head>)
+syntax-selector { property: value; }
+
+Selector - element 
+         - #id
+         - .classname
+         - element.class
+         - *(universal selector)
+         - sel1,sel2,sel3
+         
+comment - /*    */
+
+PROPERTIES:
+
+color,background-color:  rgb( , , )(range=0 to 255)
+                         #------(in hexdecimal system)(#fc9; /* same as #ffcc99 */)
+                         hsl(0 to 360,sturation%,lightness%)
+                         rgba( a for transparency 0.0 to 1.0 )
+
+opacity: The opacity property specifies the opacity/transparency of an element. It can take a value from 0.0 - 1.0. The lower value, the more transparent:
+
+background-image: By default, the image is repeated so it covers the entire element.
+                  background-image: url("paper.gif");                  
+background-repeat: repeat-x( to repeat horizontally)
+                   repeat-y
+                   no-repeat
+backround-position:top bottom left right center ( can have two values with a space )
+background-attachment: property specifies whether the background image should scroll or be fixed (will not scroll with the rest of the page):
+                       fixed
+                       scroll
+background-size: auto|length|cover|contain|initial|inherit;(https://www.w3schools.com/cssref/css3_pr_background-size.php)   
+Use the shorthand property to set the background properties in one declaration: (background: #ffffff url("img_tree.png") no-repeat right top;)
+
+border-style: dotted - Defines a dotted border
+              dashed - Defines a dashed border
+              solid - Defines a solid border
+              double - Defines a double border
+              groove - Defines a 3D grooved border. The effect depends on the border-color value
+              ridge - Defines a 3D ridged border. The effect depends on the border-color value
+              inset - Defines a 3D inset border. The effect depends on the border-color value
+              outset - Defines a 3D outset border. The effect depends on the border-color value
+              none - Defines no border
+              hidden - Defines a hidden border
+              top right bottom left
+              top,bottom right,left
+border-top-style etc
+border-width: (in px, pt, cm, em, etc) thin medium thick
+              top right bottom left
+              top,bottom right,left
+border-color: top right bottom left
+              top,bottom right,left
+The border property is a shorthand property for the following individual border properties:
+border-width
+border-style (required)
+border-color	
+      
+border-radius: for rounded borders
+
+The CSS margin properties are used to create space around elements, outside of any defined borders.
+
+The margin property is a shorthand property for the following individual margin properties:
+margin-top
+margin-right
+margin-bottom
+margin-left 
+If the margin property has three values:
+margin: 25px 50px 75px;
+top margin is 25px
+right and left margins are 50px
+bottom margin is 75px
+If the margin property has two values:
+margin: 25px 50px;
+top and bottom margins are 25px
+right and left margins are 50px
+
+You can set the margin property to auto to horizontally center the element within its container.
+The element will then take up the specified width, and the remaining space will be split equally between the left and right margins.
+
+inherit value :be inherited from the parent element 
+
+Top and bottom margins of elements are sometimes collapsed into a single margin that is equal to the largest of the two margins.
+
+Padding is used to create space around an element's content, inside of any defined borders.
+padding-top
+padding-right
+padding-bottom
+padding-left
+
+height,width : auto - This is default. The browser calculates the height and width
+               length - Defines the height/width in px, cm, etc.
+               % - Defines the height/width in percent of the containing block
+               initial - Sets the height/width to its default value
+               inherit - The height/width will be inherited from its parent value
+
+The max-width property is used to set the maximum width of an element.
+The max-width can be specified in length values, like px, cm, etc., or in percent (%) of the containing block, or set to none (this is default. Means that there is no maximum width).
+The problem with the <div> above occurs when the browser window is smaller than the width of the element (500px). The browser then adds a horizontal scrollbar to the page.
+Using max-width instead, in this situation, will improve the browser's handling of small windows.
+
+An outline is a line that is drawn around elements, OUTSIDE the borders, to make the element "stand out".
+
+outline-style
+outline-color
+outline-width
+outline-offset(The outline-offset property adds space between an outline and the edge/border of an element. The space between an element and its outline is transparent)
+outline
+
+text-align: center right left
+text-align-last: right center justify
+direction: rtl ltr
+unicode-bidi: bidi-override
+vertical-align:
+
+text-decoration-line: overline line-through underline 
+text-decoration-color: color of text-decoration-line 
+text-decoration-style
+text-decoration-thickness
+text-decoration-( https://www.w3schools.com/css/css_text_decoration.asp )
+All links in HTML are underlined by default. Sometimes you see that links are styled with no underline. The text-decoration: none; is used to remove the underline from links, like this:
+
+text-transform: uppercase lowercase capitalize
+
+text-indent: property is used to specify the indentation of the first line of a text:
+letter-spacing:  property is used to specify the space between the characters in a text.
+line-height: property is used to specify the space between lines:
+word-spacing: property is used to specify the space between the words in a text.
+
+text-shadow: property adds shadow to text. (2px 2px;) (2px 2px red;) (2px 2px 5px red;)can have multiple values seperated by a comma
+
+font-family: The font-family property should hold several font names as a "fallback" system, to ensure maximum compatibility between browsers/operating systems. Start with the font you want, and end with a generic family (to let the browser pick a similar font in the generic family, if no other fonts are available). The font names should be separated with comma.
+font-style: normal italic oblique
+font-weight: normal bold
+font-variant: normal small-caps(In a small-caps font, all lowercase letters are converted to uppercase letters. However, the converted uppercase letters appears in a smaller font size than the original uppercase letters in the text.)
+font-size: Absolute size
+ 	   Relative size
+           The text size can be set with a vw unit, which means the "viewport width".
+The font property is a shorthand property for:
+font-style
+font-variant
+font-weight
+font-size/line-height
+font-family
+
+Links: a:link - a normal, unvisited link
+       a:visited - a link the user has visited
+       a:hover - a link when the user mouses over it
+       a:active - a link the moment it is clicked
+
+cursor: ( https://www.w3schools.com/css/css_link.asp )
+
+Lists: list-style-type: circle square disc none
+       list-style-position: outside inside
+       list-style-image
+
+Tables: border
+        border-collapse
+        width
+        th,td-height
+              text-align
+              vertical-align(top bottom middle)
+              padding
+        border-bottom
+        element:hover
+        tr:nth-child(even)
+        Add a container element (like <div>) with overflow-x:auto around the <table> element to make it responsive:(<div style="overflow-x:auto;">)(A responsive table will display a horizontal scroll bar if the screen is too small to display the full content. Resize the browser window to see the effect:)
+	
+position: static
+          relative
+          fixed
+          absolute
+          sticky
+
+z-index: The z-index property specifies the stack order of an element (which element should be placed in front of, or behind, the others)
+
+overflow: The overflow property specifies whether to clip the content or to add scrollbars when the content of an element is too big to fit in the specified area.
+          visible - Default. The overflow is not clipped. The content renders outside the element's box
+          hidden - The overflow is clipped, and the rest of the content will be invisible
+          scroll - The overflow is clipped, and a scrollbar is added to see the rest of the content
+          auto - Similar to scroll, but it adds scrollbars only when necessary
+overflow-x,overflow-y
+
+float: left
+       right
+       none
+       inherit
+clear: When we use the float property, and we want the next element below (not on right or left), we will have to use the clear property.
+       none
+       left
+       right
+       both
+       inherit
+If a floated element is taller than the containing element, it will "overflow" outside of its container. We can then add a clearfix hack to solve this problem:
+( .clearfix {
+  overflow: auto;
+})
+
+box-sizing: border-box; We also use the box-sizing property to make sure that the box doesn't break due to extra padding. Try to remove this code to see the effect.
+
+margin: auto; -To horizontally center a block element (like <div>)
+
+dropdown: https://www.w3schools.com/css/tryit.asp?filename=trycss_dropdown_text
+          https://www.w3schools.com/css/tryit.asp?filename=trycss_dropdown_button
+
+Forms: https://www.w3schools.com/css/css_form.asp
+
+         
+
